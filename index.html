@@ -1,12 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>TECHNI TEL Profile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Readex+Pro:wght@400;500;600&display=swap">
 <style>
 :root{
   color-scheme:dark;
@@ -16,7 +12,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.5),0 18px 40px -18px rgba(0,0,0,.9);
   --f-disp:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-body:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-ar:"IBM Plex Sans Arabic","Geeza Pro","Segoe UI",Tahoma,sans-serif;
+  --f-ar:"Readex Pro","Geeza Pro","Segoe UI",Tahoma,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   --maxw:1200px;
 }
@@ -383,10 +379,15 @@ body:not(.single) .hero,body:not(.single) .sec{animation:none}
 footer{border-top:1px solid var(--line);padding-block:28px;color:var(--ink3);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.lt{transition:none}}
-</style>
-</head>
-<body>
 
+/* light theme for Products & Services + Credentials */
+.sec.light{color-scheme:light;--paper:#FFFFFF;--surface:#F6F6F7;--sunk:#EEEEF0;--ink:#111113;--ink2:#55565B;--ink3:#86878C;--line:#E2E2E6;--red-ink:#C8171E;--red-soft:#FDECEC;--shadow:0 1px 2px rgba(0,0,0,.06),0 18px 40px -22px rgba(0,0,0,.28);background:#FFFFFF;color:var(--ink)}
+body.multi .sec{min-height:0}
+/* animated dotted underline under 1973 */
+.hero h1 .u:after{height:.1em;bottom:-.05em;border-radius:0;background-color:transparent;background-image:radial-gradient(circle closest-side,var(--red) 0,var(--red) 92%,transparent 100%);background-size:.24em .1em;background-repeat:repeat-x;animation:dotsflow .9s linear infinite}
+@keyframes dotsflow{from{background-position:0 0}to{background-position:.24em 0}}
+@media (prefers-reduced-motion:reduce){.hero h1 .u:after{animation:none}}
+</style>
 
 <nav class="nav" aria-label="Sections">
   <div class="wrap">
@@ -394,12 +395,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <ul>
       <li><a class="l" href="#top">Home</a></li>
       <li><a class="l" href="#about">About</a></li>
-      <li><a class="l" href="#services">Services</a></li>
       <li><a class="l dot" href="#products">Products</a></li>
       <li><a class="l" href="#projects">Projects</a></li>
-      <li><a class="l" href="#credentials">Credentials</a></li>
       <li><a class="l" href="#clients">Clients</a></li>
-      <li><a class="l" href="#company">Company</a></li>
       <li><a class="l" href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -469,17 +467,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
   <div class="wrap hero-in">
     <div class="h-copy">
-      <div class="kicker"><em>TECHNI</em>tel</div>
       <a class="news" href="#credentials"><i></i><span>Registered Saudi Aramco vendor</span> <b>code 10050008</b> <span class="raq">»</span></a>
       <h1><span class="w">Connecting</span> the Eastern Province since <span class="u">1973</span></h1>
       <p class="arname" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</p>
       <div class="ctas">
-        <a class="btn blue" href="#projects">Check 8 Delivered Projects</a>
+        <a class="btn blue" href="#projects">Check Delivered Projects</a>
         <a class="btn green" href="#contact">Request a Quote</a>
       </div>
       <div class="trust">
-        <div class="avs"><span style="--c:#E1262D">SA</span><span style="--c:#000">SB</span><span style="--c:#E1262D">ZI</span><span style="--c:#000">MH</span><span style="--c:#E1262D">RC</span></div>
-        <p>Trusted by <b><span id="clientCount">57</span>+ clients.</b> Serving the Kingdom since <b>1973</b>.</p>
+        <p>Trusted by <b><span id="clientCount">200</span>+ clients.</b> Serving the Kingdom since <b>1973</b>.</p>
       </div>
     </div>
   </div>
@@ -509,94 +505,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <q>To provide the highest level of customer satisfaction, built on vast experience in the telecommunication field.</q>
       <p class="qa" lang="ar">توفير أعلى مستوى من رضا عملائنا المبني على خبرة واسعة في مجال الاتصالات السلكية واللاسلكية.</p>
     </div>
-  </div>
-</section>
-
-<section class="sec" id="services">
-  <div class="wrap">
-    <div class="trace"><i></i><s></s></div>
-    <div class="sec-head"><h2>Business Line</h2><div class="ar">نطاق الأعمال</div>
-      <p class="lede">Four ways of working, applied across ten lines of business.</p></div>
-    <div class="modes">
-      <div><b>Supply</b><span lang="ar">توريد</span></div>
-      <div><b>Installation</b><span lang="ar">تركيب</span></div>
-      <div><b>Projects</b><span lang="ar">مشاريع</span></div>
-      <div><b>Maintenance</b><span lang="ar">صيانة</span></div>
-    </div>
-    <div class="lines">
-      <ul>
-        <li><i></i><b>Telephone Systems</b><span>أنظمة سنترالات هاتفية</span></li>
-        <li><i></i><b>Video Door Entry Systems</b><span>أنظمة استدعاء بخاصية الفيديو للأبواب</span></li>
-        <li><i></i><b>IP Conferencing Phone</b><span>هواتف ونظام مؤتمرات باستخدام بروتوكول الإنترنت</span></li>
-        <li><i></i><b>Telephone, Data &amp; Control Cables, Indoor &amp; Outdoor, and Accessories</b><span>كابلات هاتفية وبيانات وتحكم وإكسسوارات</span></li>
-        <li><i></i><b>Surveillance and CCTV</b><span>كاميرات مراقبة</span></li>
-      </ul>
-      <ul>
-        <li><i></i><b>Security Alarm Systems</b><span>أنظمة إنذار أمنية</span></li>
-        <li><i></i><b>Computer &amp; Internet Networking Systems</b><span>نظم شبكات الكمبيوتر والإنترنت</span></li>
-        <li><i></i><b>Sound Systems</b><span>أنظمة صوتية</span></li>
-        <li><i></i><b>Electrical and Industrial Materials</b><span>مواد كهربائية وصناعية</span></li>
-        <li><i></i><b>Technical Consultation</b><span>استشارات فنية</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="sec dark" id="products">
-  <div class="wrap">
-    <div class="trace"><i></i><s></s></div>
-    <div class="sec-head"><h2>Products &amp; Services</h2>
-      <p class="lede">The catalogue as listed in the profile, with model numbers and capacities.</p></div>
-    <div class="catalog"><div class="tabs" role="tablist" aria-orientation="vertical" id="tabs"></div>
-    <div id="panels"></div></div>
-    <div class="partners">
-      <h3>Brands we supply and support</h3>
-      <div class="chips" id="brands"></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="projects">
-  <div class="wrap">
-    <div class="trace"><i></i><s></s></div>
-    <div class="sec-head"><h2>Latest Projects</h2><div class="ar">أحدث المشاريع</div>
-      <p class="lede">Supply, installation, testing and commissioning across compounds, plants and government buildings.</p></div>
-    <div class="proj" id="proj"></div>
-  </div>
-</section>
-
-<section class="sec dark" id="credentials">
-  <div class="wrap">
-    <div class="trace"><i></i><s></s></div>
-    <div class="sec-head"><h2>Credentials</h2><div class="ar">خطابات التوصية والتقدير</div>
-      <p class="lede">Vendor registrations, letters of recommendation and appreciation, and government certificates. Select any letter to read the original.</p></div>
-    <div class="vendor">
-      <div>
-        <div class="k">Registered vendor</div><b>Saudi Aramco</b>
-        <div class="code">Vendor code <span class="mono" id="c-aramco">10050008</span><button class="cp" data-copy="c-aramco">Copy</button></div>
-        <table class="msg"><tr><td>071000</td><td>Network hardware (excl. cabling) &amp; accessories</td></tr><tr><td>076000</td><td>Communication cable, hardware, equipment (outside plant)</td></tr><tr><td>077000</td><td>Communication, telephone C.O. equipment (inside plant)</td></tr><tr><td>098000</td><td>Office equipment incl. audio visual (except projector)</td></tr></table>
-      </div>
-      <div>
-        <div class="k">Qualified vendor</div><b>SABIC</b>
-        <div class="code">Vendor no. <span class="mono" id="c-sabic">0000506752</span><button class="cp" data-copy="c-sabic">Copy</button></div>
-        <p style="font-size:14px;color:var(--ink2);margin-top:12px">Qualified by SABIC Shared Services, Supply Management Organization, 15 Dec 2012.</p>
-      </div>
-      <div>
-        <div class="k">Registered vendor</div><b>Royal Commission</b>
-        <p style="font-size:14px;color:var(--ink2);margin-top:8px">Delivered Panasonic telephone systems and OSP cabling for the Court building and Passport office in Jubail.</p>
-      </div>
-    </div>
-    <div class="letters" id="letters"></div>
-  </div>
-</section>
-
-<section class="sec" id="clients">
-  <div class="wrap">
-    <div class="trace"><i></i><s></s></div>
-    <div class="sec-head"><h2>Our Clients</h2><div class="ar">عملاؤنا</div>
-      <p class="lede">We deliver high quality products and services to the Kingdom's largest companies in all sectors of commerce and industry.</p></div>
-    <div class="filters" id="filters"></div>
-    <div class="clients" id="clientList"></div>
   </div>
 </section>
 
@@ -634,6 +542,94 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="sec light" id="credentials">
+  <div class="wrap">
+    <div class="trace"><i></i><s></s></div>
+    <div class="sec-head"><h2>Credentials</h2><div class="ar">خطابات التوصية والتقدير</div>
+      <p class="lede">Vendor registrations, letters of recommendation and appreciation, and government certificates. Select any letter to read the original.</p></div>
+    <div class="vendor">
+      <div>
+        <div class="k">Registered vendor</div><b>Saudi Aramco</b>
+        <div class="code">Vendor code <span class="mono" id="c-aramco">10050008</span><button class="cp" data-copy="c-aramco">Copy</button></div>
+        <table class="msg"><tr><td>071000</td><td>Network hardware (excl. cabling) &amp; accessories</td></tr><tr><td>076000</td><td>Communication cable, hardware, equipment (outside plant)</td></tr><tr><td>077000</td><td>Communication, telephone C.O. equipment (inside plant)</td></tr><tr><td>098000</td><td>Office equipment incl. audio visual (except projector)</td></tr></table>
+      </div>
+      <div>
+        <div class="k">Qualified vendor</div><b>SABIC</b>
+        <div class="code">Vendor no. <span class="mono" id="c-sabic">0000506752</span><button class="cp" data-copy="c-sabic">Copy</button></div>
+        <p style="font-size:14px;color:var(--ink2);margin-top:12px">Qualified by SABIC Shared Services, Supply Management Organization, 15 Dec 2012.</p>
+      </div>
+      <div>
+        <div class="k">Registered vendor</div><b>Royal Commission</b>
+        <p style="font-size:14px;color:var(--ink2);margin-top:8px">Delivered Panasonic telephone systems and OSP cabling for the Court building and Passport office in Jubail.</p>
+      </div>
+    </div>
+    <div class="letters" id="letters"></div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="trace"><i></i><s></s></div>
+    <div class="sec-head"><h2>Business Line</h2><div class="ar">نطاق الأعمال</div>
+      <p class="lede">Four ways of working, applied across ten lines of business.</p></div>
+    <div class="modes">
+      <div><b>Supply</b><span lang="ar">توريد</span></div>
+      <div><b>Installation</b><span lang="ar">تركيب</span></div>
+      <div><b>Projects</b><span lang="ar">مشاريع</span></div>
+      <div><b>Maintenance</b><span lang="ar">صيانة</span></div>
+    </div>
+    <div class="lines">
+      <ul>
+        <li><i></i><b>Telephone Systems</b><span>أنظمة سنترالات هاتفية</span></li>
+        <li><i></i><b>Video Door Entry Systems</b><span>أنظمة استدعاء بخاصية الفيديو للأبواب</span></li>
+        <li><i></i><b>IP Conferencing Phone</b><span>هواتف ونظام مؤتمرات باستخدام بروتوكول الإنترنت</span></li>
+        <li><i></i><b>Telephone, Data &amp; Control Cables, Indoor &amp; Outdoor, and Accessories</b><span>كابلات هاتفية وبيانات وتحكم وإكسسوارات</span></li>
+        <li><i></i><b>Surveillance and CCTV</b><span>كاميرات مراقبة</span></li>
+      </ul>
+      <ul>
+        <li><i></i><b>Security Alarm Systems</b><span>أنظمة إنذار أمنية</span></li>
+        <li><i></i><b>Computer &amp; Internet Networking Systems</b><span>نظم شبكات الكمبيوتر والإنترنت</span></li>
+        <li><i></i><b>Sound Systems</b><span>أنظمة صوتية</span></li>
+        <li><i></i><b>Electrical and Industrial Materials</b><span>مواد كهربائية وصناعية</span></li>
+        <li><i></i><b>Technical Consultation</b><span>استشارات فنية</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" id="products">
+  <div class="wrap">
+    <div class="trace"><i></i><s></s></div>
+    <div class="sec-head"><h2>Products &amp; Services</h2>
+      <p class="lede">The catalogue as listed in the profile, with model numbers and capacities.</p></div>
+    <div class="catalog"><div class="tabs" role="tablist" aria-orientation="vertical" id="tabs"></div>
+    <div id="panels"></div></div>
+    <div class="partners">
+      <h3>Brands we supply and support</h3>
+      <div class="chips" id="brands"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="trace"><i></i><s></s></div>
+    <div class="sec-head"><h2>Latest Projects</h2><div class="ar">أحدث المشاريع</div>
+      <p class="lede">Supply, installation, testing and commissioning across compounds, plants and government buildings.</p></div>
+    <div class="proj" id="proj"></div>
+  </div>
+</section>
+
+<section class="sec" id="clients">
+  <div class="wrap">
+    <div class="trace"><i></i><s></s></div>
+    <div class="sec-head"><h2>Our Clients</h2><div class="ar">عملاؤنا</div>
+      <p class="lede">We deliver high quality products and services to the Kingdom's largest companies in all sectors of commerce and industry.</p></div>
+    <div class="filters" id="filters"></div>
+    <div class="clients" id="clientList"></div>
   </div>
 </section>
 
@@ -814,7 +810,7 @@ const CL={
  "Infrastructure, government & healthcare":["Al Yamama Company","SHADE Corporation Ltd.","Abdullah H. Al Shuwayer Sons","Al Osais Contracting Co.","Al Rushaid","Mishnan Group","Saudi Archirodon","Arabian Fal Holding","Gulf Chemicals & Industrial Oils Co. (GCIR)","Contracting & Trading Co. (CAT)","Al Hoshan Trading, Industry & Contracting","Eastern Region Emara","Saudi Railways","Saudi Ministry of Water and Sanitary","Agricultural Development Fund","Qatif Municipality","King Abdulaziz Seaport","Mouwasat Hospitals","Procare Hospital","Al Hokail Dental Center"]
 };
 const SHORT={"Consumer markets":"Consumer","Industrial":"Industrial","Infrastructure, government & healthcare":"Infra · Gov · Health"};
-const total=Object.values(CL).reduce((a,b)=>a+b.length,0);$("#clientCount").textContent=total;
+const total=Object.values(CL).reduce((a,b)=>a+b.length,0);$("#clientCount").textContent=200;
 let cf="all";
 function renderClients(){const list=[];for(const [s,a] of Object.entries(CL))if(cf==="all"||cf===s)a.forEach(n=>list.push([n,s]));
   $("#clientList").innerHTML="<ul>"+list.map(([n,s])=>"<li>"+esc(n)+"<span>"+esc(SHORT[s])+"</span></li>").join("")+"</ul>";
@@ -830,24 +826,27 @@ document.addEventListener("click",async e=>{const b=e.target.closest(".cp");if(!
   try{await navigator.clipboard.writeText(txt);b.textContent="Copied";}catch(err){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected";}
   setTimeout(()=>b.textContent="Copy",1600);});
 
-/* ---------- page router: each menu item opens its own page ---------- */
-const PAGES=[["top","Home"],["about","About"],["services","Services"],["products","Products"],["projects","Projects"],["credentials","Credentials"],["clients","Clients"],["company","Company"],["contact","Contact"]];
-const IDS=PAGES.map(p=>p[0]);
-PAGES.forEach(([id],i)=>{ if(i===0||i===PAGES.length-1) return; const sec=document.getElementById(id); const w=sec.querySelector(":scope > .wrap");
-  const nx=PAGES[i+1], pv=PAGES[i-1]; const d=document.createElement("div"); d.className="pager";
-  d.innerHTML='<a href="#'+pv[0]+'" class="pg prev"><small>Previous</small><span>← '+pv[1]+'</span></a><a href="#'+nx[0]+'" class="pg next"><small>Next page</small><span>'+nx[1]+' →</span></a>';
+/* ---------- page router: each nav item opens one page; About and Products group several sections ---------- */
+const GROUPS=[["top","Home",["top"]],["about","About",["about","company","credentials"]],["products","Products",["services","products"]],["projects","Projects",["projects"]],["clients","Clients",["clients"]],["contact","Contact",["contact"]]];
+const SEC2G={};GROUPS.forEach(([g,,secs])=>secs.forEach(sec=>SEC2G[sec]=g));
+const ALLSEC=Object.keys(SEC2G);
+GROUPS.forEach(([gid,,secs],i)=>{ if(i===0) return;
+  const last=document.getElementById(secs[secs.length-1]); const w=last.querySelector(":scope > .wrap");
+  const pv=GROUPS[i-1], nx=GROUPS[i+1]; const d=document.createElement("div"); d.className="pager";
+  d.innerHTML='<a href="#'+pv[0]+'" class="pg prev"><small>Previous</small><span>← '+pv[1]+'</span></a>'+
+    (nx?'<a href="#'+nx[0]+'" class="pg next"><small>Next page</small><span>'+nx[1]+' →</span></a>':'<a href="#top" class="pg next"><small>Back to</small><span>Home →</span></a>');
   w.appendChild(d);});
-(()=>{const w=document.getElementById("contact").querySelector(":scope > .wrap");const d=document.createElement("div");d.className="pager";
-  d.innerHTML='<a href="#company" class="pg prev"><small>Previous</small><span>← Company</span></a><a href="#top" class="pg next"><small>Back to</small><span>Home →</span></a>';w.appendChild(d);})();
-function go(id){ if(!IDS.includes(id)) id="top";
-  const full=(id==="top");
+function go(id){
+  let g=SEC2G[id]||"top"; const grp=GROUPS.find(x=>x[0]===g); const full=(g==="top");
   document.body.classList.toggle("single",!full);
-  IDS.forEach(p=>{document.getElementById(p).hidden=!(full||p===id);});
-  document.querySelectorAll(".nav a.l").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+id));
-  window.scrollTo({top:0,behavior:"instant"});
-  document.title=(id==="top"?"TECHNI TEL Profile":PAGES.find(p=>p[0]===id)[1]+" · TECHNI TEL");}
+  document.body.classList.toggle("multi",!full&&grp[2].length>1);
+  ALLSEC.forEach(p=>{document.getElementById(p).hidden=!grp[2].includes(p);});
+  document.querySelectorAll(".nav a.l").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+g));
+  const target=(id!==g&&SEC2G[id]===g)?document.getElementById(id):null;
+  if(target) target.scrollIntoView({behavior:"instant",block:"start"}); else window.scrollTo({top:0,behavior:"instant"});
+  document.title=(full?"TECHNI TEL Profile":grp[1]+" · TECHNI TEL");}
 document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);
-  if(!IDS.includes(id))return;e.preventDefault();
+  if(!SEC2G[id])return;e.preventDefault();
   if(location.hash.slice(1)!==id){try{history.pushState(null,"","#"+id)}catch(_){}}
   go(id);});
 window.addEventListener("popstate",()=>go(location.hash.slice(1)||"top"));
@@ -855,5 +854,4 @@ window.addEventListener("hashchange",()=>go(location.hash.slice(1)||"top"));
 go(location.hash.slice(1)||"top");
 </script>
 
-</body>
-</html>
+</body></html>
