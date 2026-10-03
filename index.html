@@ -60,7 +60,7 @@ body{background:var(--paper)}
 .nav a.l{display:block;padding:10px 14px;font-size:15.5px;font-weight:500;color:var(--ink);text-decoration:none;white-space:nowrap;border-radius:8px;position:relative}
 .nav li:first-child a.l{color:var(--ink3)}
 .nav a.l:hover{background:rgba(255,255,255,.06)}
-.nav a.dot:after{content:"";position:absolute;top:4px;right:2px;width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px rgba(229,56,63,.25)}
+
 @media (max-width:760px){.brand span{display:none}.nav .wrap{gap:10px;height:64px}.brand b{font-size:21px}.nav a.l{font-size:14px;padding:8px 10px}}
 
 /* trace: the brochure's line-and-node motif */
@@ -94,7 +94,7 @@ body{background:var(--paper)}
 .hero h1 .w{color:#fff}
 .hero h1 .u{color:#fff;position:relative;white-space:nowrap}
 .hero h1 .u:after{content:"";position:absolute;left:0;right:0;bottom:-.04em;height:.09em;background:var(--red);border-radius:2px}
-.hero h1 .u:before{content:"";position:absolute;left:0;bottom:-.14em;width:.12em;height:.2em;background:#fff;border-radius:1px}
+
 .arname{font-family:var(--f-ar);direction:rtl;text-align:left;font-size:18px;color:var(--ink3);margin-bottom:34px}
 .ctas{display:flex;gap:22px;flex-wrap:wrap}
 .trust{display:flex;align-items:center;gap:18px;margin-top:56px;flex-wrap:wrap}
@@ -387,6 +387,20 @@ body.multi .sec{min-height:0}
 .hero h1 .u:after{height:.1em;bottom:-.05em;border-radius:0;background-color:transparent;background-image:radial-gradient(circle closest-side,var(--red) 0,var(--red) 92%,transparent 100%);background-size:.24em .1em;background-repeat:repeat-x;animation:dotsflow .9s linear infinite}
 @keyframes dotsflow{from{background-position:0 0}to{background-position:.24em 0}}
 @media (prefers-reduced-motion:reduce){.hero h1 .u:after{animation:none}}
+/* home highlights */
+#highlights{padding-block:72px 80px;background:var(--paper)}
+#highlights .hl-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#highlights .hl-stats div{background:var(--surface);padding:26px 22px}
+#highlights .hl-stats b{display:block;font-family:var(--f-disp);font-size:clamp(28px,3.2vw,42px);font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+#highlights .hl-stats span{font-size:14px;color:var(--ink2)}
+#highlights h2{font-size:clamp(26px,2.8vw,36px);margin:56px 0 12px}
+#highlights .hl-lede{color:var(--ink2);max-width:62ch;margin:0 0 28px}
+#highlights .hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+#highlights .hl-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;border-top:3px solid var(--red)}
+#highlights .hl-card h3{font-size:18px;margin-bottom:8px}
+#highlights .hl-card p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.55}
+@media (max-width:900px){#highlights .hl-stats,#highlights .hl-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){#highlights .hl-stats,#highlights .hl-grid{grid-template-columns:1fr}}
 </style>
 
 <nav class="nav" aria-label="Sections">
@@ -395,7 +409,7 @@ body.multi .sec{min-height:0}
     <ul>
       <li><a class="l" href="#top">Home</a></li>
       <li><a class="l" href="#about">About</a></li>
-      <li><a class="l dot" href="#products">Products</a></li>
+      <li><a class="l" href="#products">Products</a></li>
       <li><a class="l" href="#projects">Projects</a></li>
       <li><a class="l" href="#clients">Clients</a></li>
       <li><a class="l" href="#contact">Contact</a></li>
@@ -480,6 +494,25 @@ body.multi .sec{min-height:0}
     </div>
   </div>
 </header>
+
+<section class="sec" id="highlights">
+  <div class="wrap">
+    <div class="hl-stats">
+      <div><b>1973</b><span>Established in Dammam</span></div>
+      <div><b>200+</b><span>Clients across the Kingdom</span></div>
+      <div><b>50+</b><span>Years of experience</span></div>
+      <div><b>10050008</b><span>Saudi Aramco vendor code</span></div>
+    </div>
+    <h2>What we do</h2>
+    <p class="hl-lede">TECHNI TEL delivers telecommunication, electrical and low-current systems to the Kingdom's largest companies in commerce and industry.</p>
+    <div class="hl-grid">
+      <div class="hl-card"><h3>Telephone Systems</h3><p>PABX and IP telephony from leading brands, installed and maintained.</p></div>
+      <div class="hl-card"><h3>Security &amp; CCTV</h3><p>Surveillance, access control and intercom solutions.</p></div>
+      <div class="hl-card"><h3>Structured Cabling</h3><p>Copper and fiber networks, from design through testing.</p></div>
+      <div class="hl-card"><h3>Public Address</h3><p>Sound and PA systems for sites, plants and buildings.</p></div>
+    </div>
+  </div>
+</section>
 
 
 <section class="sec" id="about">
@@ -827,7 +860,7 @@ document.addEventListener("click",async e=>{const b=e.target.closest(".cp");if(!
   setTimeout(()=>b.textContent="Copy",1600);});
 
 /* ---------- page router: each nav item opens one page; About and Products group several sections ---------- */
-const GROUPS=[["top","Home",["top"]],["about","About",["about","company","credentials"]],["products","Products",["services","products"]],["projects","Projects",["projects"]],["clients","Clients",["clients"]],["contact","Contact",["contact"]]];
+const GROUPS=[["top","Home",["top","highlights"]],["about","About",["about","company","credentials"]],["products","Products",["services","products"]],["projects","Projects",["projects"]],["clients","Clients",["clients"]],["contact","Contact",["contact"]]];
 const SEC2G={};GROUPS.forEach(([g,,secs])=>secs.forEach(sec=>SEC2G[sec]=g));
 const ALLSEC=Object.keys(SEC2G);
 GROUPS.forEach(([gid,,secs],i)=>{ if(i===0) return;
