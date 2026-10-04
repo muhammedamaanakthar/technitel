@@ -343,8 +343,8 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--ink3);fon
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.lt{transition:none}}
 
-/* light theme for Products & Services + Credentials */
-.sec.light, #products, #services {
+/* light theme for Products, Services & Contact */
+.sec.light, #products, #services, #contact {
   color-scheme: light;
   --paper: #FFFFFF;
   --surface: #FFFFFF;
@@ -359,9 +359,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   background: #FFFFFF !important;
   color: #111113;
 }
-.sec.light h2, #products h2, #services h2 { color: #111113; }
-.sec.light .ar, #products .ar, #services .ar { color: #787980; }
-.sec.light .lede, #products .lede, #services .lede { color: #4A4B50; }
+.sec.light h2, #products h2, #services h2, #contact h2 { color: #111113; }
+.sec.light .ar, #products .ar, #services .ar, #contact .ar { color: #787980; }
+.sec.light .lede, #products .lede, #services .lede, #contact .lede { color: #4A4B50; }
 #products .pgroup, #services .mode-card, #services .lines-img-card {
   background: #FFFFFF;
   border: 1px solid #E2E2E6;
@@ -400,6 +400,112 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 #services .lines span { color: #787980; }
 #services .lines-img-card .card-caption { color: #4A4B50; }
 #services .lines-img-card .card-caption b { color: #111113; }
+
+/* Contact Section Light Theme */
+#contact .contact-visual-card {
+  grid-column: 1 / -1;
+  background: #FFFFFF;
+  border: 1px solid #E2E2E6;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
+}
+#contact .contact-visual-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  display: block;
+}
+#contact .contact-visual-info {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  background: #FFFFFF;
+}
+#contact .contact-visual-info h4 {
+  font-family: var(--f-disp);
+  font-size: 20px;
+  font-weight: 600;
+  color: #111113;
+  margin: 0;
+}
+#contact .contact-visual-info p {
+  color: #4A4B50;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+#contact .contact-visual-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+  color: #787980;
+  padding-top: 6px;
+  border-top: 1px solid #EAEAEF;
+}
+#contact .contact-visual-meta span b {
+  color: #111113;
+}
+#contact .card {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E6;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
+  padding: 26px;
+}
+#contact .card h3 {
+  color: #111113;
+  font-size: 24px;
+}
+#contact .card .ar {
+  color: #787980;
+}
+#contact .rows div {
+  border-top-color: #EAEAEF;
+}
+#contact .rows .k {
+  color: #787980;
+}
+#contact .rows .v {
+  color: #111113;
+}
+#contact .cp {
+  background: #F7F7F8;
+  border: 1px solid #E2E2E6;
+  color: #4A4B50;
+  border-radius: 6px;
+  transition: all .2s ease;
+}
+#contact .cp:hover {
+  background: #FFFFFF;
+  border-color: #C8171E;
+  color: #C8171E;
+}
+#contact .map {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E6;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
+  padding: 14px;
+  display: grid;
+}
+#contact .map .cap {
+  color: #787980;
+}
+@media (max-width:760px) {
+  #contact .contact-visual-card { grid-template-columns: 1fr; }
+  #contact .contact-visual-card img { height: 200px; min-height: 200px; }
+}
+
 .sec.light .pg {
   background: #FFFFFF;
   border: 1px solid #E2E2E6;
@@ -853,7 +959,7 @@ body.multi .sec{min-height:0}
   </div>
 </section>
 
-<section class="sec" id="contact">
+<section class="sec light" id="contact">
   <div class="wrap">
     <div class="trace"><i></i><s></s></div>
     <div class="sec-head"><h2>Visit &amp; Contact</h2><div class="ar">موقع الشركة</div></div>
