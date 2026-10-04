@@ -344,7 +344,70 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.lt{transition:none}}
 
 /* light theme for Products & Services + Credentials */
-.sec.light{color-scheme:light;--paper:#FFFFFF;--surface:#F6F6F7;--sunk:#EEEEF0;--ink:#111113;--ink2:#55565B;--ink3:#86878C;--line:#E2E2E6;--red-ink:#C8171E;--red-soft:#FDECEC;--shadow:0 1px 2px rgba(0,0,0,.06),0 18px 40px -22px rgba(0,0,0,.28);background:#FFFFFF;color:var(--ink)}
+.sec.light, #products, #services {
+  color-scheme: light;
+  --paper: #FFFFFF;
+  --surface: #FFFFFF;
+  --sunk: #F7F7F8;
+  --ink: #111113;
+  --ink2: #4A4B50;
+  --ink3: #787980;
+  --line: #E2E2E6;
+  --red-ink: #C8171E;
+  --red-soft: #FDECEC;
+  --shadow: 0 4px 20px -4px rgba(0,0,0,.08);
+  background: #FFFFFF !important;
+  color: #111113;
+}
+.sec.light h2, #products h2, #services h2 { color: #111113; }
+.sec.light .ar, #products .ar, #services .ar { color: #787980; }
+.sec.light .lede, #products .lede, #services .lede { color: #4A4B50; }
+#products .pgroup, #services .mode-card, #services .lines-img-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E6;
+  box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
+}
+#products .pgroup h3, #services .mode-title b { color: #111113; }
+#products .pgroup .note, #services .mode-info p { color: #4A4B50; }
+#products .spec td { border-top-color: #EAEAEF; color: #111113; }
+#products .spec td.m { color: #C8171E; font-weight: 500; }
+#products .feat li { color: #333336; border-top-color: #EAEAEF; }
+#products .feat li:before { border-color: #E1262D; }
+#products .pics figure { background: #FFFFFF; border: 1px solid #E2E2E6; }
+#products .tab {
+  background: #F7F7F8;
+  color: #4A4B50;
+  border-color: #E2E2E6;
+}
+#products .tab:hover {
+  background: #FFFFFF;
+  border-color: #C8171E;
+  color: #111113;
+}
+#products .tab[aria-selected="true"] {
+  background: #E1262D !important;
+  color: #FFFFFF !important;
+  border-color: #E1262D !important;
+}
+#products .partners h3 { color: #111113; }
+#products .chips span {
+  background: #F7F7F8;
+  border-color: #E2E2E6;
+  color: #333336;
+}
+#services .lines li { border-bottom-color: #E2E2E6; }
+#services .lines b { color: #111113; }
+#services .lines span { color: #787980; }
+#services .lines-img-card .card-caption { color: #4A4B50; }
+#services .lines-img-card .card-caption b { color: #111113; }
+.sec.light .pg {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E6;
+  color: #111113;
+}
+.sec.light .pg small { color: #787980; }
+.sec.light .pg:hover { border-color: #E1262D; }
+.sec.light .pg.next span { color: #C8171E; }
 body.multi .sec{min-height:0}
 /* animated dotted underline under 1973 */
 .hero h1 .u:after{height:.1em;bottom:-.05em;border-radius:0;background-color:transparent;background-image:radial-gradient(circle closest-side,var(--red) 0,var(--red) 92%,transparent 100%);background-size:.24em .1em;background-repeat:repeat-x;animation:dotsflow .9s linear infinite}
@@ -667,7 +730,7 @@ body.multi .sec{min-height:0}
   </div>
 </section>
 
-<section class="sec" id="services">
+<section class="sec light" id="services">
   <div class="wrap">
     <div class="trace"><i></i><s></s></div>
     <div class="sec-head"><h2>Business Line</h2><div class="ar">نطاق الأعمال</div>
