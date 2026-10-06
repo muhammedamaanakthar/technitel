@@ -497,11 +497,188 @@ footer a:hover{color:var(--red)}
   border: 1px solid #E2E2E6;
   border-radius: 14px;
   box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
-  padding: 14px;
-  display: grid;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 2px;
+}
+.map-tabs {
+  display: inline-flex;
+  background: #F4F4F6;
+  border: 1px solid #E2E2E6;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 3px;
+}
+.map-tab-btn {
+  font: 500 12.5px var(--f-body);
+  background: transparent;
+  border: none;
+  color: #55565B;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .2s ease;
+}
+.map-tab-btn:hover {
+  color: #111113;
+}
+.map-tab-btn.active {
+  background: #FFFFFF;
+  color: #C8171E;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+.map-direct-btn {
+  font: 600 12.5px var(--f-body);
+  color: #FFFFFF;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid #C8171E;
+  border-radius: 8px;
+  background: #C8171E;
+  box-shadow: 0 2px 6px rgba(200, 23, 30, .2);
+  transition: all .2s ease;
+}
+.map-direct-btn:hover {
+  background: #A81016;
+  border-color: #A81016;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(200, 23, 30, .3);
+  transform: translateY(-1px);
+}
+.card-map-action {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #EAEAEF;
+}
+.btn-gmaps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 18px;
+  background: #C8171E;
+  color: #FFFFFF !important;
+  font-family: var(--f-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(200, 23, 30, .25);
+  transition: all .2s ease;
+}
+.btn-gmaps:hover {
+  background: #A81016;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(200, 23, 30, .35);
+  transform: translateY(-1px);
+}
+.btn-gmaps svg {
+  flex-shrink: 0;
+}
+.btn-gmaps .arr {
+  font-size: 15px;
+  transition: transform .2s ease;
+}
+.btn-gmaps:hover .arr {
+  transform: translate(2px, -2px);
+}
+.meta-map-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #C8171E;
+  background: #FFF5F5;
+  border: 1px solid rgba(200, 23, 30, .25);
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-left: auto;
+  transition: all .2s ease;
+}
+.meta-map-badge:hover {
+  background: #C8171E;
+  color: #FFFFFF;
+}
+.cap-gmaps-link {
+  color: #C8171E;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s ease;
+}
+.cap-gmaps-link:hover {
+  color: #A81016;
+}
+.gmap-embed-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #E2E2E6;
+  background: #F7F7F8;
+  height: 380px;
+}
+.gmap-embed-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.map-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.map-panel[hidden] {
+  display: none !important;
 }
 #contact .map .cap {
   color: #787980;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 4px 2px 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.row-btns {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.row-btns a.cp {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+@media (max-width: 540px) {
+  .gmap-embed-wrap { height: 300px; }
+  .map-header { flex-direction: column; align-items: stretch; }
+  .map-tabs { width: 100%; justify-content: space-between; }
+  .map-tab-btn { flex: 1; justify-content: center; }
+  .map-direct-btn { justify-content: center; width: 100%; }
 }
 @media (max-width:760px) {
   #contact .contact-visual-card { grid-template-columns: 1fr; }
@@ -975,6 +1152,10 @@ body.multi .sec{min-height:0}
             <span><b>HQ:</b> Dammam 31452</span>
             <span><b>Reach:</b> Eastern Province &amp; Kingdom-wide</span>
             <span><b>Registrations:</b> Aramco &amp; SABIC Certified</span>
+            <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="meta-map-badge" title="Open Technitel location in Google Maps">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Open in Google Maps ↗</span>
+            </a>
           </div>
         </div>
       </div>
@@ -987,32 +1168,78 @@ body.multi .sec{min-height:0}
           <div><span class="k">Email</span><span class="v" id="c-mail">info@technitel.com.sa</span><button class="cp" data-copy="c-mail">Copy</button></div>
           <div><span class="k">Web</span><span class="v" id="c-web">www.technitel.com.sa</span><button class="cp" data-copy="c-web">Copy</button></div>
           <div><span class="k">Mail</span><span class="v" id="c-po">P.O. Box 6534, Dammam 31452</span><button class="cp" data-copy="c-po">Copy</button></div>
-          <div><span class="k">Office</span><span class="v" id="c-addr">King Khalid Street at Dhahran Street (11th St.), Dammam</span><button class="cp" data-copy="c-addr">Copy</button></div>
+          <div><span class="k">Office</span><span class="v" id="c-addr">King Khalid Street at Dhahran Street (11th St.), Dammam</span><span class="row-btns"><button class="cp" data-copy="c-addr">Copy</button><a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="cp" title="Open location in Google Maps">Map ↗</a></span></div>
+        </div>
+        <div class="card-map-action">
+          <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="btn-gmaps" title="Open Technitel location in Google Maps">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Open in Google Maps</span>
+            <span class="arr">↗</span>
+          </a>
         </div>
       </div>
       <div class="map">
-        <svg viewBox="0 0 520 380" role="img" aria-label="Location sketch: TECHNI TEL on the south-east corner of King Khalid Street and Dhahran Street, next to Banque Saudi Fransi, opposite Sport Ghornatah">
-          <rect x="0" y="0" width="520" height="380" fill="var(--sunk)"/>
-          <rect x="0" y="150" width="520" height="56" fill="var(--surface)"/>
-          <rect x="226" y="0" width="56" height="380" fill="var(--surface)"/>
-          <line x1="0" y1="178" x2="226" y2="178" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
-          <line x1="282" y1="178" x2="520" y2="178" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
-          <line x1="254" y1="0" x2="254" y2="150" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
-          <line x1="254" y1="206" x2="254" y2="380" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
-          <text x="20" y="143" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink3)" letter-spacing="1">KING KHALID STREET</text>
-          <text x="272" y="60" transform="rotate(90 272 60)" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink3)" letter-spacing="1">DHAHRAN ST (11TH)</text>
-          <g><rect x="300" y="36" width="190" height="80" fill="var(--surface)" stroke="var(--line)"/>
-            <text x="316" y="72" font-family="Poppins, sans-serif" font-size="20" font-weight="600" fill="var(--ink2)">SPORT GHORNATAH</text>
-            <text x="316" y="94" font-family="IBM Plex Sans, sans-serif" font-size="12" fill="var(--ink3)">Landmark, opposite corner</text></g>
-          <g><rect x="300" y="224" width="190" height="64" rx="8" fill="var(--brand)"/>
-            <rect x="312" y="236" width="40" height="40" fill="#fff"/>
-            <image href="data:image/jpeg;base64,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" x="314" y="238" width="36" height="36"/>
-            <text x="364" y="262" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#fff" letter-spacing="1">TECHNI TEL</text></g>
-          <g><rect x="300" y="300" width="190" height="56" fill="var(--surface)" stroke="var(--line)"/>
-            <text x="316" y="334" font-family="Poppins, sans-serif" font-size="20" font-weight="600" fill="var(--ink2)">BANQUE SAUDI FRANSI</text></g>
-          <circle cx="254" cy="178" r="5" fill="var(--red)"/>
-        </svg>
-        <div class="cap">Redrawn from the "Company Landmark" page. Not to scale. · <button id="mapScanBtn" type="button" style="background:transparent;border:none;color:var(--red-ink);cursor:pointer;font-family:inherit;font-size:inherit;text-decoration:underline">View Original Landmark Map Scan (PDF) ⤢</button></div>
+        <div class="map-header">
+          <div class="map-tabs" role="tablist" aria-label="Location Map Views">
+            <button type="button" class="map-tab-btn active" id="tabGMap" role="tab" aria-selected="true" aria-controls="viewGMap">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Google Maps</span>
+            </button>
+            <button type="button" class="map-tab-btn" id="tabLandmark" role="tab" aria-selected="false" aria-controls="viewLandmark">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+              <span>Landmark Sketch (1973)</span>
+            </button>
+          </div>
+          <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="map-direct-btn" title="Open Technitel in Google Maps">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Open in Google Maps</span>
+            <span style="font-size:14px">↗</span>
+          </a>
+        </div>
+        <div class="map-panel" id="viewGMap" role="tabpanel" aria-labelledby="tabGMap">
+          <div class="gmap-embed-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.4007269576723!2d50.1881868!3d26.3458979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fb81133a6665%3A0xe395f32d6d15f7e9!2sTechnitel!5e0!3m2!1sen!2ssa!4v1728198000000!5m2!1sen!2ssa"
+              width="100%"
+              height="380"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Maps Location - Technitel Dammam">
+            </iframe>
+          </div>
+          <div class="cap">
+            <span>King Khalid St &amp; Dhahran St (11th St), Dammam · Pinpoint Location</span>
+            <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="cap-gmaps-link">Open in Google Maps ↗</a>
+          </div>
+        </div>
+        <div class="map-panel" id="viewLandmark" role="tabpanel" aria-labelledby="tabLandmark" hidden>
+          <svg viewBox="0 0 520 380" role="img" aria-label="Location sketch: TECHNI TEL on the south-east corner of King Khalid Street and Dhahran Street, next to Banque Saudi Fransi, opposite Sport Ghornatah">
+            <rect x="0" y="0" width="520" height="380" fill="var(--sunk)"/>
+            <rect x="0" y="150" width="520" height="56" fill="var(--surface)"/>
+            <rect x="226" y="0" width="56" height="380" fill="var(--surface)"/>
+            <line x1="0" y1="178" x2="226" y2="178" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
+            <line x1="282" y1="178" x2="520" y2="178" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
+            <line x1="254" y1="0" x2="254" y2="150" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
+            <line x1="254" y1="206" x2="254" y2="380" stroke="var(--line)" stroke-dasharray="10 8" stroke-width="2"/>
+            <text x="20" y="143" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink3)" letter-spacing="1">KING KHALID STREET</text>
+            <text x="272" y="60" transform="rotate(90 272 60)" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink3)" letter-spacing="1">DHAHRAN ST (11TH)</text>
+            <g><rect x="300" y="36" width="190" height="80" fill="var(--surface)" stroke="var(--line)"/>
+              <text x="316" y="72" font-family="Poppins, sans-serif" font-size="20" font-weight="600" fill="var(--ink2)">SPORT GHORNATAH</text>
+              <text x="316" y="94" font-family="IBM Plex Sans, sans-serif" font-size="12" fill="var(--ink3)">Landmark, opposite corner</text></g>
+            <g><rect x="300" y="224" width="190" height="64" rx="8" fill="var(--brand)"/>
+              <rect x="312" y="236" width="40" height="40" fill="#fff"/>
+              <image href="data:image/jpeg;base64,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" x="314" y="238" width="36" height="36"/>
+              <text x="364" y="262" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#fff" letter-spacing="1">TECHNI TEL</text></g>
+            <g><rect x="300" y="300" width="190" height="56" fill="var(--surface)" stroke="var(--line)"/>
+              <text x="316" y="334" font-family="Poppins, sans-serif" font-size="20" font-weight="600" fill="var(--ink2)">BANQUE SAUDI FRANSI</text></g>
+            <circle cx="254" cy="178" r="5" fill="var(--red)"/>
+          </svg>
+          <div class="cap">
+            <span>Redrawn from the "Company Landmark" page. Not to scale. · <button id="mapScanBtn" type="button" style="background:transparent;border:none;color:var(--red-ink);cursor:pointer;font-family:inherit;font-size:inherit;text-decoration:underline">View Original Landmark Map Scan (PDF) ⤢</button></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1171,6 +1398,29 @@ const mapBtn=document.getElementById("mapScanBtn");
 if(mapBtn){
   const trigMap=()=>openLb("images/company_landmark_map.jpg","TECHNI TEL · Company Landmark & Location Map (Page 27)","Technitel Landmark Location Map",mapBtn);
   mapBtn.addEventListener("click",trigMap);
+}
+
+const tabGMap=document.getElementById("tabGMap");
+const tabLandmark=document.getElementById("tabLandmark");
+const viewGMap=document.getElementById("viewGMap");
+const viewLandmark=document.getElementById("viewLandmark");
+if(tabGMap && tabLandmark && viewGMap && viewLandmark){
+  tabGMap.addEventListener("click",()=>{
+    tabGMap.classList.add("active");
+    tabGMap.setAttribute("aria-selected","true");
+    tabLandmark.classList.remove("active");
+    tabLandmark.setAttribute("aria-selected","false");
+    viewGMap.hidden=false;
+    viewLandmark.hidden=true;
+  });
+  tabLandmark.addEventListener("click",()=>{
+    tabLandmark.classList.add("active");
+    tabLandmark.setAttribute("aria-selected","true");
+    tabGMap.classList.remove("active");
+    tabGMap.setAttribute("aria-selected","false");
+    viewLandmark.hidden=false;
+    viewGMap.hidden=true;
+  });
 }
 
 /* ---------- clients ---------- */
