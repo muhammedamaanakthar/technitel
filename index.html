@@ -324,7 +324,7 @@ body:not(.single) .hero,body:not(.single) .sec{animation:none}
 @media (max-width:860px){.safety{grid-template-columns:1fr}}
 
 /* contact */
-.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
+.contact{display:grid;grid-template-columns:1.14fr 0.86fr;gap:24px;align-items:start}
 .card{background:var(--surface);border:1px solid var(--line);padding:26px}
 .card h3{font-size:24px;text-transform:none;margin-bottom:4px}
 .card .ar{font-family:var(--f-ar);direction:rtl;text-align:left;color:var(--ink3);margin-bottom:18px}
@@ -457,6 +457,278 @@ footer a:hover{color:var(--red)}
 #contact .contact-visual-meta span b {
   color: #111113;
 }
+/* Contact Form & Layout */
+#contact .contact-form-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E6;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#contact .contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.form-header {
+  border-bottom: 1px solid #EAEAEF;
+  padding-bottom: 16px;
+}
+.form-header .eyebrow {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #C8171E;
+  margin-bottom: 4px;
+}
+.form-header h3 {
+  font-family: var(--f-disp);
+  font-size: 24px;
+  font-weight: 600;
+  color: #111113;
+  margin: 0 0 2px;
+}
+.form-header .ar {
+  font-family: var(--f-ar);
+  font-size: 14px;
+  color: #787980;
+  direction: rtl;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.form-header p.form-desc {
+  font-size: 13.5px;
+  color: #4A4B50;
+  line-height: 1.5;
+  margin: 0;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group.full {
+  grid-column: 1 / -1;
+}
+.form-label {
+  font-family: var(--f-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #2D2E32;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-label .req {
+  color: #E1262D;
+  font-weight: 700;
+  margin-left: 2px;
+}
+.form-label .hint {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: #8C8D94;
+  font-weight: 400;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  font-family: var(--f-body);
+  font-size: 14px;
+  color: #111113;
+  background: #F7F7F8;
+  border: 1px solid #D5D5DA;
+  border-radius: 8px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+  box-sizing: border-box;
+}
+.form-input::placeholder, .form-textarea::placeholder {
+  color: #9899A0;
+  font-size: 13px;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  background: #FFFFFF;
+  border-color: #C8171E;
+  box-shadow: 0 0 0 3px rgba(200, 23, 30, 0.12);
+}
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234A4B50' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 105px;
+  line-height: 1.5;
+}
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #E1262D;
+  color: #FFFFFF;
+  font-family: var(--f-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(225, 38, 45, .25);
+  transition: all .2s ease;
+}
+.btn-submit:hover {
+  background: #B81C22;
+  box-shadow: 0 4px 14px rgba(225, 38, 45, .35);
+  transform: translateY(-1px);
+}
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-submit .arr {
+  font-size: 16px;
+  transition: transform .2s ease;
+}
+.btn-submit:hover .arr {
+  transform: translateX(3px);
+}
+.btn-spinner {
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+.form-micro-note {
+  font-size: 12px;
+  color: #787980;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.form-micro-note svg {
+  flex-shrink: 0;
+  color: #C8171E;
+}
+.form-success-card {
+  background: #F8FDF9;
+  border: 1px solid #C3E6CB;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: formFadeIn .3s ease;
+}
+@keyframes formFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.form-success-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.form-success-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #D4EDDA;
+  color: #155724;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.form-success-header h4 {
+  font-size: 18px;
+  color: #155724;
+  margin: 0 0 2px;
+}
+.form-success-sub {
+  font-size: 13px;
+  color: #386744;
+  margin: 0;
+}
+.form-success-body {
+  font-size: 14px;
+  color: #24422B;
+  line-height: 1.6;
+}
+.form-success-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.btn-mail-client {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  background: #155724;
+  color: #FFFFFF !important;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(21, 87, 36, 0.25);
+  transition: opacity .2s, transform .2s;
+}
+.btn-mail-client:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+.btn-form-reset {
+  background: transparent;
+  border: 1px solid #A2D4AC;
+  color: #155724;
+  font-family: var(--f-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.btn-form-reset:hover {
+  background: #E8F5E9;
+}
+@media (max-width: 900px) {
+  .contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .form-actions { flex-direction: column; align-items: stretch; }
+  .btn-submit { width: 100%; }
+  #contact .contact-form-card { padding: 20px; }
+}
+
 #contact .card {
   background: #FFFFFF;
   border: 1px solid #E2E2E6;
@@ -1141,7 +1413,11 @@ body.multi .sec{min-height:0}
 <section class="sec light" id="contact">
   <div class="wrap">
     <div class="trace"><i></i><s></s></div>
-    <div class="sec-head"><h2>Visit &amp; Contact</h2><div class="ar">موقع الشركة</div></div>
+    <div class="sec-head">
+      <h2>Contact &amp; Request a Quote</h2>
+      <div class="ar">تواصل معنا وموقع الشركة</div>
+      <p class="lede">Submit project inquiries, request engineering quotations, or connect with our regional headquarters in Dammam.</p>
+    </div>
     <div class="contact">
       <div class="contact-visual-card">
         <img src="images/engineers_team.jpg" alt="Technitel Telecom Headquarters and Engineering Operations in Dammam" loading="lazy">
@@ -1152,14 +1428,134 @@ body.multi .sec{min-height:0}
             <span><b>HQ:</b> Dammam 31452</span>
             <span><b>Reach:</b> Eastern Province &amp; Kingdom-wide</span>
             <span><b>Registrations:</b> Aramco &amp; SABIC Certified</span>
-            <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="meta-map-badge" title="Open Technitel location in Google Maps">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <span>Open in Google Maps ↗</span>
-            </a>
           </div>
         </div>
       </div>
-      <div class="card">
+      <!-- Contact & Quotation Request Form -->
+      <div class="contact-form-card" id="contactFormCard">
+        <div class="form-header">
+          <span class="eyebrow">REQUEST A QUOTE · GET IN TOUCH</span>
+          <h3>Send an Inquiry</h3>
+          <p class="ar" lang="ar">طلب عرض أسعار أو استفسار فني</p>
+          <p class="form-desc">
+            Direct channel to Technitel sales and telecom project engineers. Fill in your requirements below for prompt RFQs, technical surveys, or SLA maintenance support.
+          </p>
+        </div>
+
+        <form id="contactForm" novalidate>
+          <div id="formFieldsWrapper">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="cf-name">
+                  <span>Full Name <span class="req">*</span></span>
+                </label>
+                <input type="text" id="cf-name" name="name" class="form-input" placeholder="e.g. Eng. Mohammed Al-Otaibi" required autocomplete="name">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-email">
+                  <span>Work Email <span class="req">*</span></span>
+                </label>
+                <input type="email" id="cf-email" name="email" class="form-input" placeholder="e.g. m.otaibi@company.com" required autocomplete="email">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-phone">
+                  <span>Phone / Mobile <span class="req">*</span></span>
+                  <span class="hint">KSA (+966)</span>
+                </label>
+                <input type="tel" id="cf-phone" name="phone" class="form-input" placeholder="e.g. +966 50 123 4567" required autocomplete="tel">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-company">
+                  <span>Company / Organization</span>
+                </label>
+                <input type="text" id="cf-company" name="company" class="form-input" placeholder="e.g. Saudi Aramco / Contractor Co." autocomplete="organization">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-service">
+                  <span>Solution / Service Category</span>
+                </label>
+                <select id="cf-service" name="service" class="form-select">
+                  <option value="" selected>Select Solution / Service...</option>
+                  <option value="Structured Cabling &amp; Fiber Optics">Structured Cabling &amp; Fiber Optics (Belden / Siemon)</option>
+                  <option value="Avaya IP Telephony &amp; Voice">Avaya IP Telephony &amp; Unified Communications</option>
+                  <option value="MATV &amp; Healthcare TV Networks">MATV &amp; Healthcare Entertainment Networks</option>
+                  <option value="CCTV &amp; Physical Security">CCTV Surveillance &amp; Access Control</option>
+                  <option value="Public Address &amp; Sound Paging">Public Address, Intercom &amp; Sound Paging</option>
+                  <option value="Master Clock Systems">Master Clock &amp; Time Distribution</option>
+                  <option value="Maintenance SLA &amp; Support">Annual Maintenance SLA &amp; Technical Support</option>
+                  <option value="General Project Inquiry">General Project Inquiry / Tender RFQ</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cf-location">
+                  <span>Project City / Location</span>
+                </label>
+                <input type="text" id="cf-location" name="location" class="form-input" placeholder="e.g. Dammam, Khobar, Jubail, Riyadh">
+              </div>
+
+              <div class="form-group full">
+                <label class="form-label" for="cf-subject">
+                  <span>Subject / Project Title <span class="req">*</span></span>
+                </label>
+                <input type="text" id="cf-subject" name="subject" class="form-input" placeholder="e.g. RFQ for Commercial Tower Structured Cabling &amp; CCTV" required>
+              </div>
+
+              <div class="form-group full">
+                <label class="form-label" for="cf-message">
+                  <span>Project Scope &amp; Requirements <span class="req">*</span></span>
+                  <span class="hint">Min. 10 characters</span>
+                </label>
+                <textarea id="cf-message" name="message" class="form-textarea" rows="4" placeholder="Please outline your project scope, bill of quantities (BOQ), required delivery timeframe, or site survey details..." required></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-submit" id="contactSubmitBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <span>Submit Inquiry</span>
+                <span class="arr">→</span>
+              </button>
+              <div class="form-micro-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Aramco Vendor #10050008 · Communications are confidential</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submission Feedback Display -->
+          <div id="formFeedback" class="form-success-card" hidden>
+            <div class="form-success-header">
+              <div class="form-success-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <h4>Inquiry Prepared Successfully</h4>
+                <p class="form-success-sub">Thank you, <b id="feedbackSenderName">Valued Client</b>! Your project inquiry has been recorded.</p>
+              </div>
+            </div>
+            <div class="form-success-body">
+              <p>Our engineering and sales team in Dammam has received your notification and will follow up with you at <b id="feedbackSenderEmail">your email</b> within 24 business hours.</p>
+              <p style="margin-top:8px;font-size:13px;color:#4A4B50;">For immediate dispatch via your default corporate email application (Outlook, Apple Mail, etc.), click the button below:</p>
+            </div>
+            <div class="form-success-actions">
+              <a href="#" id="feedbackMailtoLink" class="btn-mail-client">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>Send via Email Client (Outlook / Mail) ↗</span>
+              </a>
+              <button type="button" id="feedbackResetBtn" class="btn-form-reset">Submit Another Inquiry</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Direct Contact Details & Interactive Maps Sidebar -->
+      <div class="contact-sidebar">
+        <div class="card">
         <h3>TECHNI TEL</h3>
         <p class="ar" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</p>
         <div class="rows">
@@ -1168,14 +1564,7 @@ body.multi .sec{min-height:0}
           <div><span class="k">Email</span><span class="v" id="c-mail">info@technitel.com.sa</span><button class="cp" data-copy="c-mail">Copy</button></div>
           <div><span class="k">Web</span><span class="v" id="c-web">www.technitel.com.sa</span><button class="cp" data-copy="c-web">Copy</button></div>
           <div><span class="k">Mail</span><span class="v" id="c-po">P.O. Box 6534, Dammam 31452</span><button class="cp" data-copy="c-po">Copy</button></div>
-          <div><span class="k">Office</span><span class="v" id="c-addr">King Khalid Street at Dhahran Street (11th St.), Dammam</span><span class="row-btns"><button class="cp" data-copy="c-addr">Copy</button><a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="cp" title="Open location in Google Maps">Map ↗</a></span></div>
-        </div>
-        <div class="card-map-action">
-          <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="btn-gmaps" title="Open Technitel location in Google Maps">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>Open in Google Maps</span>
-            <span class="arr">↗</span>
-          </a>
+          <div><span class="k">Office</span><span class="v" id="c-addr">King Khalid Street at Dhahran Street (11th St.), Dammam</span><button class="cp" data-copy="c-addr">Copy</button></div>
         </div>
       </div>
       <div class="map">
@@ -1210,8 +1599,7 @@ body.multi .sec{min-height:0}
             </iframe>
           </div>
           <div class="cap">
-            <span>King Khalid St &amp; Dhahran St (11th St), Dammam · Pinpoint Location</span>
-            <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="cap-gmaps-link">Open in Google Maps ↗</a>
+            <span>King Khalid St &amp; Dhahran St (11th St), Dammam</span>
           </div>
         </div>
         <div class="map-panel" id="viewLandmark" role="tabpanel" aria-labelledby="tabLandmark" hidden>
@@ -1241,6 +1629,7 @@ body.multi .sec{min-height:0}
           </div>
         </div>
       </div>
+      </div> <!-- /.contact-sidebar -->
     </div>
   </div>
 </section>
@@ -1421,6 +1810,79 @@ if(tabGMap && tabLandmark && viewGMap && viewLandmark){
     viewLandmark.hidden=false;
     viewGMap.hidden=true;
   });
+}
+
+/* ---------- contact & quote form ---------- */
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const btn = document.getElementById("contactSubmitBtn");
+    const name = (document.getElementById("cf-name")?.value || "").trim();
+    const email = (document.getElementById("cf-email")?.value || "").trim();
+    const phone = (document.getElementById("cf-phone")?.value || "").trim();
+    const company = (document.getElementById("cf-company")?.value || "").trim();
+    const service = (document.getElementById("cf-service")?.value || "").trim();
+    const location = (document.getElementById("cf-location")?.value || "").trim();
+    const subject = (document.getElementById("cf-subject")?.value || "").trim();
+    const message = (document.getElementById("cf-message")?.value || "").trim();
+
+    if (!name || !email || !phone || !message) {
+      alert("Please fill in all required fields (Name, Email, Phone, Message).");
+      return;
+    }
+
+    const originalHtml = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path></svg> <span>Sending...</span>';
+
+    setTimeout(() => {
+      const mailSubject = encodeURIComponent(`[Technitel RFQ] ${subject || service || 'Inquiry'} - ${company || name}`);
+      const mailBody = encodeURIComponent(
+        `TECHNI TEL - PROJECT INQUIRY / QUOTATION REQUEST\n` +
+        `==================================================\n` +
+        `Contact Name:  ${name}\n` +
+        `Work Email:    ${email}\n` +
+        `Phone Number:  ${phone}\n` +
+        `Company:       ${company || 'Not Specified'}\n` +
+        `Service Area:  ${service || 'General Telecom / Electrical'}\n` +
+        `Project City:  ${location || 'Not Specified'}\n` +
+        `==================================================\n` +
+        `PROJECT SCOPE & REQUIREMENTS:\n${message}\n` +
+        `==================================================\n` +
+        `Sent from Technitel Online Profile (technitel.com.sa)`
+      );
+      const mailtoUrl = `mailto:info@technitel.com.sa?subject=${mailSubject}&body=${mailBody}`;
+
+      const feedback = document.getElementById("formFeedback");
+      const formFields = document.getElementById("formFieldsWrapper");
+      if (feedback && formFields) {
+        formFields.hidden = true;
+        feedback.hidden = false;
+        const nameEl = document.getElementById("feedbackSenderName");
+        if (nameEl) nameEl.textContent = name;
+        const emailEl = document.getElementById("feedbackSenderEmail");
+        if (emailEl) emailEl.textContent = email;
+        const mailClientLink = document.getElementById("feedbackMailtoLink");
+        if (mailClientLink) mailClientLink.setAttribute("href", mailtoUrl);
+      }
+      btn.disabled = false;
+      btn.innerHTML = originalHtml;
+    }, 500);
+  });
+
+  const resetBtn = document.getElementById("feedbackResetBtn");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", function () {
+      contactForm.reset();
+      const feedback = document.getElementById("formFeedback");
+      const formFields = document.getElementById("formFieldsWrapper");
+      if (feedback && formFields) {
+        feedback.hidden = true;
+        formFields.hidden = false;
+      }
+    });
+  }
 }
 
 /* ---------- clients ---------- */
