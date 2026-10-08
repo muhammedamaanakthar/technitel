@@ -324,7 +324,7 @@ body:not(.single) .hero,body:not(.single) .sec{animation:none}
 @media (max-width:860px){.safety{grid-template-columns:1fr}}
 
 /* contact */
-.contact{display:grid;grid-template-columns:1.14fr 0.86fr;gap:24px;align-items:start}
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
 .card{background:var(--surface);border:1px solid var(--line);padding:26px}
 .card h3{font-size:24px;text-transform:none;margin-bottom:4px}
 .card .ar{font-family:var(--f-ar);direction:rtl;text-align:left;color:var(--ink3);margin-bottom:18px}
@@ -457,126 +457,260 @@ footer a:hover{color:var(--red)}
 #contact .contact-visual-meta span b {
   color: #111113;
 }
-/* Contact Form & Layout */
-#contact .contact-form-card {
-  background: #FFFFFF;
-  border: 1px solid #E2E2E6;
+
+/* Footer & Footer Contact Form */
+footer {
+  background: #0E0E10;
+  color: #FFFFFF;
+  border-top: 1px solid #242426;
+  padding-block: clamp(48px, 6vw, 76px) 24px;
+}
+.footer-main {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+  margin-bottom: clamp(40px, 5vw, 56px);
+}
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.footer-brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: block;
+}
+.footer-brand b {
+  font-family: var(--f-disp);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  color: #FFFFFF;
+}
+.footer-brand b em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--brand);
+}
+.footer-brand span {
+  font-family: var(--f-ar);
+  font-size: 13px;
+  color: #8C8C94;
+}
+.footer-ar-name {
+  font-family: var(--f-ar);
+  font-size: 14.5px;
+  color: #A0A0A8;
+  direction: rtl;
+  text-align: left;
+  margin: 0 0 16px;
+}
+.footer-desc {
+  font-size: 14.5px;
+  color: #B4B4BC;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+.footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.footer-badges span {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  color: #D2D2D8;
+  background: #18181B;
+  border: 1px solid #2E2E33;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.footer-badges span b {
+  color: var(--red-ink);
+}
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #222225;
+  padding-top: 18px;
+}
+.footer-contact-list div {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 13.5px;
+}
+.footer-contact-list .fk {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  color: #7A7A82;
+  letter-spacing: .06em;
+}
+.footer-contact-list .fv {
+  color: #EDEDF0;
+}
+.footer-contact-list a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s;
+}
+.footer-contact-list a:hover {
+  color: var(--red-ink);
+}
+.footer-bottom {
+  border-top: 1px solid #222225;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #7A7A82;
+  font-size: 13px;
+}
+.footer-bottom a {
+  color: #A0A0A8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s ease;
+}
+.footer-bottom a:hover {
+  color: var(--red);
+}
+
+/* Contact Form Styling in Footer */
+.footer-form-col .contact-form-card {
+  background: #151518;
+  border: 1px solid #2A2A2E;
   border-radius: 14px;
-  box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-#contact .contact-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-.form-header {
-  border-bottom: 1px solid #EAEAEF;
+.footer-form-col .form-header {
+  border-bottom: 1px solid #242428;
   padding-bottom: 16px;
 }
-.form-header .eyebrow {
+.footer-form-col .form-header .eyebrow {
   display: block;
   font-family: var(--f-mono);
   font-size: 11.5px;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: #C8171E;
+  color: var(--red-ink);
   margin-bottom: 4px;
 }
-.form-header h3 {
+.footer-form-col .form-header h3 {
   font-family: var(--f-disp);
   font-size: 24px;
   font-weight: 600;
-  color: #111113;
+  color: #FFFFFF;
   margin: 0 0 2px;
 }
-.form-header .ar {
+.footer-form-col .form-header .ar {
   font-family: var(--f-ar);
   font-size: 14px;
-  color: #787980;
+  color: #8C8C94;
   direction: rtl;
   text-align: left;
   margin-bottom: 8px;
 }
-.form-header p.form-desc {
+.footer-form-col .form-header p.form-desc {
   font-size: 13.5px;
-  color: #4A4B50;
+  color: #A4A4AC;
   line-height: 1.5;
   margin: 0;
 }
-.form-grid {
+.footer-form-col .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-.form-group {
+.footer-form-col .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.form-group.full {
+.footer-form-col .form-group.full {
   grid-column: 1 / -1;
 }
-.form-label {
+.footer-form-col .form-label {
   font-family: var(--f-body);
   font-size: 13px;
   font-weight: 500;
-  color: #2D2E32;
+  color: #D2D2D8;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.form-label .req {
-  color: #E1262D;
+.footer-form-col .form-label .req {
+  color: var(--red);
   font-weight: 700;
   margin-left: 2px;
 }
-.form-label .hint {
+.footer-form-col .form-label .hint {
   font-family: var(--f-mono);
   font-size: 11px;
-  color: #8C8D94;
+  color: #727278;
   font-weight: 400;
 }
-.form-input, .form-select, .form-textarea {
+.footer-form-col .form-input, 
+.footer-form-col .form-select, 
+.footer-form-col .form-textarea {
   width: 100%;
   font-family: var(--f-body);
   font-size: 14px;
-  color: #111113;
-  background: #F7F7F8;
-  border: 1px solid #D5D5DA;
+  color: #FFFFFF;
+  background: #0B0B0D;
+  border: 1px solid #2E2E33;
   border-radius: 8px;
   padding: 11px 14px;
   outline: none;
-  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease;
   box-sizing: border-box;
 }
-.form-input::placeholder, .form-textarea::placeholder {
-  color: #9899A0;
+.footer-form-col .form-input::placeholder, 
+.footer-form-col .form-textarea::placeholder {
+  color: #64646C;
   font-size: 13px;
 }
-.form-input:focus, .form-select:focus, .form-textarea:focus {
-  background: #FFFFFF;
-  border-color: #C8171E;
-  box-shadow: 0 0 0 3px rgba(200, 23, 30, 0.12);
+.footer-form-col .form-input:focus, 
+.footer-form-col .form-select:focus, 
+.footer-form-col .form-textarea:focus {
+  background: #111114;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(225, 38, 45, 0.2);
 }
-.form-select {
+.footer-form-col .form-select {
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234A4B50' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A4A4AC' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   padding-right: 36px;
   appearance: none;
   -webkit-appearance: none;
 }
-.form-textarea {
+.footer-form-col .form-select option {
+  background: #151518;
+  color: #FFFFFF;
+}
+.footer-form-col .form-textarea {
   resize: vertical;
-  min-height: 105px;
+  min-height: 100px;
   line-height: 1.5;
 }
-.form-actions {
+.footer-form-col .form-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -584,12 +718,12 @@ footer a:hover{color:var(--red)}
   margin-top: 6px;
   flex-wrap: wrap;
 }
-.btn-submit {
+.footer-form-col .btn-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #E1262D;
+  background: var(--red);
   color: #FFFFFF;
   font-family: var(--f-body);
   font-size: 14.5px;
@@ -598,47 +732,41 @@ footer a:hover{color:var(--red)}
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(225, 38, 45, .25);
+  box-shadow: 0 2px 10px rgba(225, 38, 45, .35);
   transition: all .2s ease;
 }
-.btn-submit:hover {
+.footer-form-col .btn-submit:hover {
   background: #B81C22;
-  box-shadow: 0 4px 14px rgba(225, 38, 45, .35);
+  box-shadow: 0 4px 16px rgba(225, 38, 45, .45);
   transform: translateY(-1px);
 }
-.btn-submit:disabled {
+.footer-form-col .btn-submit:disabled {
   opacity: 0.65;
   cursor: not-allowed;
   transform: none;
 }
-.btn-submit .arr {
+.footer-form-col .btn-submit .arr {
   font-size: 16px;
   transition: transform .2s ease;
 }
-.btn-submit:hover .arr {
+.footer-form-col .btn-submit:hover .arr {
   transform: translateX(3px);
 }
-.btn-spinner {
-  animation: spin 0.8s linear infinite;
-}
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-.form-micro-note {
+.footer-form-col .form-micro-note {
   font-size: 12px;
-  color: #787980;
+  color: #8C8C94;
   line-height: 1.4;
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.form-micro-note svg {
+.footer-form-col .form-micro-note svg {
   flex-shrink: 0;
-  color: #C8171E;
+  color: var(--red-ink);
 }
-.form-success-card {
-  background: #F8FDF9;
-  border: 1px solid #C3E6CB;
+.footer-form-col .form-success-card {
+  background: #0E1D13;
+  border: 1px solid #1C4428;
   border-radius: 10px;
   padding: 24px;
   display: flex;
@@ -646,68 +774,53 @@ footer a:hover{color:var(--red)}
   gap: 14px;
   animation: formFadeIn .3s ease;
 }
-@keyframes formFadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.form-success-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.form-success-icon {
+.footer-form-col .form-success-icon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #D4EDDA;
-  color: #155724;
+  background: #173721;
+  color: #48C774;
   display: grid;
   place-items: center;
   flex-shrink: 0;
 }
-.form-success-header h4 {
+.footer-form-col .form-success-header h4 {
   font-size: 18px;
-  color: #155724;
+  color: #48C774;
   margin: 0 0 2px;
 }
-.form-success-sub {
+.footer-form-col .form-success-sub {
   font-size: 13px;
-  color: #386744;
+  color: #8CD6A4;
   margin: 0;
 }
-.form-success-body {
+.footer-form-col .form-success-body {
   font-size: 14px;
-  color: #24422B;
+  color: #C8E8D2;
   line-height: 1.6;
 }
-.form-success-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 6px;
-}
-.btn-mail-client {
+.footer-form-col .btn-mail-client {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 13.5px;
   font-weight: 600;
-  background: #155724;
+  background: #235832;
   color: #FFFFFF !important;
   padding: 10px 18px;
   border-radius: 6px;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(21, 87, 36, 0.25);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
   transition: opacity .2s, transform .2s;
 }
-.btn-mail-client:hover {
+.footer-form-col .btn-mail-client:hover {
   opacity: 0.92;
   transform: translateY(-1px);
 }
-.btn-form-reset {
+.footer-form-col .btn-form-reset {
   background: transparent;
-  border: 1px solid #A2D4AC;
-  color: #155724;
+  border: 1px solid #2D6B3E;
+  color: #8CD6A4;
   font-family: var(--f-body);
   font-size: 13px;
   font-weight: 500;
@@ -716,17 +829,18 @@ footer a:hover{color:var(--red)}
   cursor: pointer;
   transition: background-color .2s;
 }
-.btn-form-reset:hover {
-  background: #E8F5E9;
+.footer-form-col .btn-form-reset:hover {
+  background: #132B1A;
 }
+
 @media (max-width: 900px) {
-  .contact { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 640px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .form-actions { flex-direction: column; align-items: stretch; }
-  .btn-submit { width: 100%; }
-  #contact .contact-form-card { padding: 20px; }
+  .footer-form-col .form-grid { grid-template-columns: 1fr; }
+  .footer-form-col .form-actions { flex-direction: column; align-items: stretch; }
+  .footer-form-col .btn-submit { width: 100%; }
+  .footer-form-col .contact-form-card { padding: 20px; }
 }
 
 #contact .card {
@@ -1413,11 +1527,7 @@ body.multi .sec{min-height:0}
 <section class="sec light" id="contact">
   <div class="wrap">
     <div class="trace"><i></i><s></s></div>
-    <div class="sec-head">
-      <h2>Contact &amp; Request a Quote</h2>
-      <div class="ar">تواصل معنا وموقع الشركة</div>
-      <p class="lede">Submit project inquiries, request engineering quotations, or connect with our regional headquarters in Dammam.</p>
-    </div>
+    <div class="sec-head"><h2>Visit &amp; Contact</h2><div class="ar">موقع الشركة</div></div>
     <div class="contact">
       <div class="contact-visual-card">
         <img src="images/engineers_team.jpg" alt="Technitel Telecom Headquarters and Engineering Operations in Dammam" loading="lazy">
@@ -1431,131 +1541,7 @@ body.multi .sec{min-height:0}
           </div>
         </div>
       </div>
-      <!-- Contact & Quotation Request Form -->
-      <div class="contact-form-card" id="contactFormCard">
-        <div class="form-header">
-          <span class="eyebrow">REQUEST A QUOTE · GET IN TOUCH</span>
-          <h3>Send an Inquiry</h3>
-          <p class="ar" lang="ar">طلب عرض أسعار أو استفسار فني</p>
-          <p class="form-desc">
-            Direct channel to Technitel sales and telecom project engineers. Fill in your requirements below for prompt RFQs, technical surveys, or SLA maintenance support.
-          </p>
-        </div>
-
-        <form id="contactForm" novalidate>
-          <div id="formFieldsWrapper">
-            <div class="form-grid">
-              <div class="form-group">
-                <label class="form-label" for="cf-name">
-                  <span>Full Name <span class="req">*</span></span>
-                </label>
-                <input type="text" id="cf-name" name="name" class="form-input" placeholder="e.g. Eng. Mohammed Al-Otaibi" required autocomplete="name">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="cf-email">
-                  <span>Work Email <span class="req">*</span></span>
-                </label>
-                <input type="email" id="cf-email" name="email" class="form-input" placeholder="e.g. m.otaibi@company.com" required autocomplete="email">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="cf-phone">
-                  <span>Phone / Mobile <span class="req">*</span></span>
-                  <span class="hint">KSA (+966)</span>
-                </label>
-                <input type="tel" id="cf-phone" name="phone" class="form-input" placeholder="e.g. +966 50 123 4567" required autocomplete="tel">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="cf-company">
-                  <span>Company / Organization</span>
-                </label>
-                <input type="text" id="cf-company" name="company" class="form-input" placeholder="e.g. Saudi Aramco / Contractor Co." autocomplete="organization">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="cf-service">
-                  <span>Solution / Service Category</span>
-                </label>
-                <select id="cf-service" name="service" class="form-select">
-                  <option value="" selected>Select Solution / Service...</option>
-                  <option value="Structured Cabling &amp; Fiber Optics">Structured Cabling &amp; Fiber Optics (Belden / Siemon)</option>
-                  <option value="Avaya IP Telephony &amp; Voice">Avaya IP Telephony &amp; Unified Communications</option>
-                  <option value="MATV &amp; Healthcare TV Networks">MATV &amp; Healthcare Entertainment Networks</option>
-                  <option value="CCTV &amp; Physical Security">CCTV Surveillance &amp; Access Control</option>
-                  <option value="Public Address &amp; Sound Paging">Public Address, Intercom &amp; Sound Paging</option>
-                  <option value="Master Clock Systems">Master Clock &amp; Time Distribution</option>
-                  <option value="Maintenance SLA &amp; Support">Annual Maintenance SLA &amp; Technical Support</option>
-                  <option value="General Project Inquiry">General Project Inquiry / Tender RFQ</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="cf-location">
-                  <span>Project City / Location</span>
-                </label>
-                <input type="text" id="cf-location" name="location" class="form-input" placeholder="e.g. Dammam, Khobar, Jubail, Riyadh">
-              </div>
-
-              <div class="form-group full">
-                <label class="form-label" for="cf-subject">
-                  <span>Subject / Project Title <span class="req">*</span></span>
-                </label>
-                <input type="text" id="cf-subject" name="subject" class="form-input" placeholder="e.g. RFQ for Commercial Tower Structured Cabling &amp; CCTV" required>
-              </div>
-
-              <div class="form-group full">
-                <label class="form-label" for="cf-message">
-                  <span>Project Scope &amp; Requirements <span class="req">*</span></span>
-                  <span class="hint">Min. 10 characters</span>
-                </label>
-                <textarea id="cf-message" name="message" class="form-textarea" rows="4" placeholder="Please outline your project scope, bill of quantities (BOQ), required delivery timeframe, or site survey details..." required></textarea>
-              </div>
-            </div>
-
-            <div class="form-actions">
-              <button type="submit" class="btn-submit" id="contactSubmitBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                <span>Submit Inquiry</span>
-                <span class="arr">→</span>
-              </button>
-              <div class="form-micro-note">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>Aramco Vendor #10050008 · Communications are confidential</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Submission Feedback Display -->
-          <div id="formFeedback" class="form-success-card" hidden>
-            <div class="form-success-header">
-              <div class="form-success-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </div>
-              <div>
-                <h4>Inquiry Prepared Successfully</h4>
-                <p class="form-success-sub">Thank you, <b id="feedbackSenderName">Valued Client</b>! Your project inquiry has been recorded.</p>
-              </div>
-            </div>
-            <div class="form-success-body">
-              <p>Our engineering and sales team in Dammam has received your notification and will follow up with you at <b id="feedbackSenderEmail">your email</b> within 24 business hours.</p>
-              <p style="margin-top:8px;font-size:13px;color:#4A4B50;">For immediate dispatch via your default corporate email application (Outlook, Apple Mail, etc.), click the button below:</p>
-            </div>
-            <div class="form-success-actions">
-              <a href="#" id="feedbackMailtoLink" class="btn-mail-client">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <span>Send via Email Client (Outlook / Mail) ↗</span>
-              </a>
-              <button type="button" id="feedbackResetBtn" class="btn-form-reset">Submit Another Inquiry</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <!-- Direct Contact Details & Interactive Maps Sidebar -->
-      <div class="contact-sidebar">
-        <div class="card">
+      <div class="card">
         <h3>TECHNI TEL</h3>
         <p class="ar" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</p>
         <div class="rows">
@@ -1629,12 +1615,168 @@ body.multi .sec{min-height:0}
           </div>
         </div>
       </div>
-      </div> <!-- /.contact-sidebar -->
     </div>
   </div>
 </section>
 
-<footer><div class="wrap"><span>TECHNI TEL · Technical Est. for Elect. &amp; Comm. Services · Dammam, Kingdom of Saudi Arabia</span><span>Designed and developed by <a href="https://a3sixty.com" target="_blank" rel="noopener">a360</a></span></div></footer>
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand-col">
+        <a class="footer-brand" href="#top">
+          <img src="data:image/jpeg;base64,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" alt="TECHNI TEL logo">
+          <b><em>TECHNI</em>tel</b>
+          <span lang="ar">تكنيتل</span>
+        </a>
+        <p class="footer-ar-name" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</p>
+        <p class="footer-desc">
+          Established in 1973 in Dammam. Enterprise telecom engineering, Avaya IP telephony, Belden &amp; Siemon structured cabling, CCTV security, MATV hospital systems, and multi-decade SLA support across the Kingdom.
+        </p>
+
+        <div class="footer-badges">
+          <span><b>Aramco:</b> Code 10050008</span>
+          <span><b>SABIC:</b> Approved Vendor</span>
+          <span><b>HQ:</b> Dammam 31452</span>
+        </div>
+
+        <div class="footer-contact-list">
+          <div><span class="fk">Tel</span><span class="fv"><a href="tel:+966138270439">827 0439</a> · <a href="tel:+966138271829">827 1829</a></span></div>
+          <div><span class="fk">Email</span><span class="fv"><a href="mailto:info@technitel.com.sa">info@technitel.com.sa</a></span></div>
+          <div><span class="fk">Office</span><span class="fv">King Khalid St &amp; Dhahran St (11th St), Dammam</span></div>
+          <div><span class="fk">Hours</span><span class="fv">Sun – Thu: 8:00 AM – 5:00 PM</span></div>
+        </div>
+      </div>
+
+      <div class="footer-form-col">
+        <div class="contact-form-card" id="contactFormCard">
+          <div class="form-header">
+            <span class="eyebrow">REQUEST A QUOTE · GET IN TOUCH</span>
+            <h3>Send an Inquiry</h3>
+            <p class="ar" lang="ar">طلب عرض أسعار أو استفسار فني</p>
+            <p class="form-desc">
+              Direct line to Technitel sales and telecom project engineers. Fill in your requirements below for prompt RFQs, technical surveys, or SLA maintenance support.
+            </p>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <div id="formFieldsWrapper">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="cf-name">
+                    <span>Full Name <span class="req">*</span></span>
+                  </label>
+                  <input type="text" id="cf-name" name="name" class="form-input" placeholder="e.g. Eng. Mohammed Al-Otaibi" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cf-email">
+                    <span>Work Email <span class="req">*</span></span>
+                  </label>
+                  <input type="email" id="cf-email" name="email" class="form-input" placeholder="e.g. m.otaibi@company.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cf-phone">
+                    <span>Phone / Mobile <span class="req">*</span></span>
+                    <span class="hint">KSA (+966)</span>
+                  </label>
+                  <input type="tel" id="cf-phone" name="phone" class="form-input" placeholder="e.g. +966 50 123 4567" required autocomplete="tel">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cf-company">
+                    <span>Company / Organization</span>
+                  </label>
+                  <input type="text" id="cf-company" name="company" class="form-input" placeholder="e.g. Saudi Aramco / Contractor Co." autocomplete="organization">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cf-service">
+                    <span>Solution / Service Category</span>
+                  </label>
+                  <select id="cf-service" name="service" class="form-select">
+                    <option value="" selected>Select Solution / Service...</option>
+                    <option value="Structured Cabling &amp; Fiber Optics">Structured Cabling &amp; Fiber Optics (Belden / Siemon)</option>
+                    <option value="Avaya IP Telephony &amp; Voice">Avaya IP Telephony &amp; Unified Communications</option>
+                    <option value="MATV &amp; Healthcare TV Networks">MATV &amp; Healthcare Entertainment Networks</option>
+                    <option value="CCTV &amp; Physical Security">CCTV Surveillance &amp; Access Control</option>
+                    <option value="Public Address &amp; Sound Paging">Public Address, Intercom &amp; Sound Paging</option>
+                    <option value="Master Clock Systems">Master Clock &amp; Time Distribution</option>
+                    <option value="Maintenance SLA &amp; Support">Annual Maintenance SLA &amp; Technical Support</option>
+                    <option value="General Project Inquiry">General Project Inquiry / Tender RFQ</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cf-location">
+                    <span>Project City / Location</span>
+                  </label>
+                  <input type="text" id="cf-location" name="location" class="form-input" placeholder="e.g. Dammam, Khobar, Jubail, Riyadh">
+                </div>
+
+                <div class="form-group full">
+                  <label class="form-label" for="cf-subject">
+                    <span>Subject / Project Title <span class="req">*</span></span>
+                  </label>
+                  <input type="text" id="cf-subject" name="subject" class="form-input" placeholder="e.g. RFQ for Commercial Tower Structured Cabling &amp; CCTV" required>
+                </div>
+
+                <div class="form-group full">
+                  <label class="form-label" for="cf-message">
+                    <span>Project Scope &amp; Requirements <span class="req">*</span></span>
+                    <span class="hint">Min. 10 characters</span>
+                  </label>
+                  <textarea id="cf-message" name="message" class="form-textarea" rows="4" placeholder="Please outline your project scope, bill of quantities (BOQ), required delivery timeframe, or site survey details..." required></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-submit" id="contactSubmitBtn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  <span>Submit Inquiry</span>
+                  <span class="arr">→</span>
+                </button>
+                <div class="form-micro-note">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span>Aramco Vendor #10050008 · Communications are confidential</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submission Feedback Display -->
+            <div id="formFeedback" class="form-success-card" hidden>
+              <div class="form-success-header">
+                <div class="form-success-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div>
+                  <h4>Inquiry Prepared Successfully</h4>
+                  <p class="form-success-sub">Thank you, <b id="feedbackSenderName">Valued Client</b>! Your project inquiry has been recorded.</p>
+                </div>
+              </div>
+              <div class="form-success-body">
+                <p>Our engineering and sales team in Dammam has received your notification and will follow up with you at <b id="feedbackSenderEmail">your email</b> within 24 business hours.</p>
+                <p style="margin-top:8px;font-size:13px;color:#A8A8B0;">For immediate dispatch via your default corporate email application (Outlook, Apple Mail, etc.), click the button below:</p>
+              </div>
+              <div class="form-success-actions">
+                <a href="#" id="feedbackMailtoLink" class="btn-mail-client">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <span>Send via Email Client (Outlook / Mail) ↗</span>
+                </a>
+                <button type="button" id="feedbackResetBtn" class="btn-form-reset">Submit Another Inquiry</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>TECHNI TEL · Technical Est. for Elect. &amp; Comm. Services · Dammam, Kingdom of Saudi Arabia</span>
+      <span>Designed and developed by <a href="https://a3sixty.com" target="_blank" rel="noopener">a360</a></span>
+    </div>
+  </div>
+</footer>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lbT">
   <header><b id="lbT"></b><button id="lbX">Close</button></header>
@@ -1925,7 +2067,9 @@ function go(id){
   ALLSEC.forEach(p=>{document.getElementById(p).hidden=!grp[2].includes(p);});
   document.querySelectorAll(".nav a.l").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+g));
   const target=(id!==g&&SEC2G[id]===g)?document.getElementById(id):null;
-  if(target) target.scrollIntoView({behavior:"instant",block:"start"}); else window.scrollTo({top:0,behavior:"instant"});
+  if(target) { target.scrollIntoView({behavior:"smooth",block:"start"}); }
+  else if(id==="quote"||id==="contactForm"||id==="footer") { document.getElementById("contactForm")?.scrollIntoView({behavior:"smooth",block:"start"}); }
+  else { window.scrollTo({top:0,behavior:"instant"}); }
   document.title=(full?"TECHNI TEL Profile":grp[1]+" · TECHNI TEL");}
 document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);
   if(!SEC2G[id])return;e.preventDefault();
