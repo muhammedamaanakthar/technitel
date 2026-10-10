@@ -3,3 +3,4 @@ images_backup/
 Thumbs.db
 *.log
 *.backup
+*.bak*

@@ -1224,6 +1224,348 @@ body.multi .sec{min-height:0}
 
 @media (max-width:900px){#highlights .hl-stats,#highlights .hl-grid,.modes-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){#highlights .hl-stats,#highlights .hl-grid,.modes-grid{grid-template-columns:1fr}}
+
+/* ========================================================
+   CEREBRIUM ANIMATION SYSTEM & HYPERSPACE EXPERIENCE
+   ======================================================== */
+
+/* 1. Hero 3D Canvas Background */
+.hero-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.95;
+  transition: opacity 0.5s ease;
+}
+.hero-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 2. Hero Content Hold Transitions */
+.h-copy, .hero-showcase {
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
+}
+html.is-hero-hold-active .h-copy,
+html.is-hero-hold-active .hero-showcase {
+  opacity: 0 !important;
+  transform: scale(0.95) translateY(-14px) !important;
+  filter: blur(6px) !important;
+  pointer-events: none !important;
+}
+
+/* 3. Follower Cursor (Cerebrium Signature) */
+.c-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease;
+}
+.c-cursor.is-visible {
+  opacity: 1;
+}
+.c-cursor.is-hidden {
+  opacity: 0;
+}
+.c-cursor_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-cursor_svg {
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg) scale(0.8);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.c-cursor.is-visible .c-cursor_svg {
+  transform: rotate(-90deg) scale(1);
+}
+.c-cursor.is-holding .c-cursor_svg {
+  transform: rotate(-90deg) scale(0.92);
+}
+.c-cursor_ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.c-cursor_progress {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px var(--red-ink));
+  stroke-dasharray: 446.1;
+  stroke-dashoffset: 446.1;
+  transition: stroke-dashoffset 0.08s linear;
+}
+.c-cursor_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.35s ease;
+}
+.c-cursor_content_bar {
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: width 0.35s ease, height 0.35s ease, border-radius 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+.c-cursor.is-holding .c-cursor_content_bar {
+  width: 16px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--red);
+  box-shadow: 0 0 8px var(--red-ink);
+}
+.c-cursor_text {
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.65);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+  transition: opacity 0.25s ease;
+}
+.c-cursor.is-holding .c-cursor_text {
+  opacity: 0;
+}
+
+/* 4. Fullscreen Hold Kinetic Typography Overlay */
+.hero-hold-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+html.is-hero-hold-active .hero-hold-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.hero-hold-words-box {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-hold-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.hero-hold-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-hold-word {
+  font-family: var(--f-disp);
+  font-size: clamp(44px, 9vw, 108px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #FFFFFF;
+  text-shadow: 0 0 45px rgba(225, 38, 45, 0.7);
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-hold-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letterDecode 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes letterDecode {
+  0% { opacity: 0; transform: translateY(18px) scale(0.9); }
+  50% { opacity: 1; transform: translateY(0) scale(1.05); }
+  75% { opacity: 0.2; }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hero-hold-sub {
+  font-family: var(--f-mono);
+  font-size: clamp(12px, 1.8vw, 17px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red-ink);
+  margin-top: 18px;
+  text-shadow: 0 0 16px rgba(225, 38, 45, 0.6);
+  opacity: 0.95;
+}
+.hero-hold-ar {
+  font-family: var(--f-ar);
+  font-size: clamp(15px, 2.2vw, 24px);
+  color: rgba(255, 255, 255, 0.85);
+  direction: rtl;
+  margin-top: 8px;
+}
+.hero-hold-hint {
+  position: absolute;
+  bottom: 30px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.65);
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  animation: hintBreathe 2s ease-in-out infinite alternate;
+}
+@keyframes hintBreathe {
+  from { opacity: 0.6; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(-4px); }
+}
+
+/* 5. Mobile Hold Button */
+.mobile-hold-bar {
+  display: none;
+  margin-top: 22px;
+}
+@media (max-width: 900px), (hover: none) {
+  .mobile-hold-bar {
+    display: block;
+  }
+}
+.mobile-hold-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: rgba(225, 38, 45, 0.15);
+  border: 1px solid var(--red);
+  color: #FFFFFF;
+  border-radius: 8px;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+.mobile-hold-btn:active, .mobile-hold-btn.is-active {
+  background: var(--red);
+  box-shadow: 0 0 24px rgba(225, 38, 45, 0.6);
+  transform: scale(0.98);
+}
+.btn-hold-radar {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red-ink);
+  box-shadow: 0 0 0 3px rgba(225, 38, 45, 0.35);
+  animation: pulse 1.6s infinite;
+}
+
+/* 6. Glowing Shimmer Text Gradient */
+.text-gradient {
+  background: linear-gradient(100deg, #FFFFFF 15%, #FFA0A3 35%, #E1262D 55%, #FF8A8E 70%, #FFFFFF 90%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 5s ease infinite;
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 7. Bento Interactive Spotlight Glow */
+[data-spotlight] {
+  position: relative;
+  overflow: hidden;
+}
+[data-spotlight]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--spot-x, -500px) var(--spot-y, -500px), rgba(225, 38, 45, 0.22), transparent 72%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+[data-spotlight]:hover::before {
+  opacity: 1;
+}
+
+/* 8. Radar Pulse Enhancement */
+.news i {
+  position: relative;
+}
+.news i::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--red);
+  animation: radarRing 2.2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+@keyframes radarRing {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* 9. Horizon Trace Reveal */
+.trace s {
+  transform-origin: left center;
+  animation: traceExpand 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes traceExpand {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 </style>
 
 <nav class="nav" aria-label="Sections">
@@ -1242,22 +1584,66 @@ body.multi .sec{min-height:0}
 
 <header class="hero" id="top">
   <div class="gridbg" aria-hidden="true"></div>
+  <div class="hero-canvas-wrap" id="heroCanvasWrap" aria-hidden="true"></div>
+
+  <!-- Cerebrium Signature Follower Cursor -->
+  <div class="c-cursor" id="heroCursor" aria-hidden="true">
+    <div class="c-cursor_container">
+      <svg viewBox="0 0 150 150" class="c-cursor_svg">
+        <circle class="c-cursor_ring" cx="75" cy="75" r="71"></circle>
+        <circle class="c-cursor_progress" cx="75" cy="75" r="71" id="heroCursorProgress"></circle>
+      </svg>
+      <div class="c-cursor_content">
+        <div class="c-cursor_content_bar"></div>
+        <div class="c-cursor_content_bar"></div>
+      </div>
+    </div>
+    <span class="c-cursor_text">Click and hold</span>
+  </div>
+
+  <!-- Cerebrium Signature Kinetic Hold Overlay -->
+  <div class="hero-hold-overlay" id="heroHoldOverlay" aria-hidden="true">
+    <div class="hero-hold-words-box">
+      <div class="hero-hold-slide is-active" data-hold-step="0">
+        <div class="hero-hold-word" data-word="CONNECTING">CONNECTING</div>
+        <div class="hero-hold-sub">TECHNICAL ESTABLISHMENT · EASTERN PROVINCE</div>
+        <div class="hero-hold-ar" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</div>
+      </div>
+      <div class="hero-hold-slide" data-hold-step="1">
+        <div class="hero-hold-word" data-word="POWERING">POWERING</div>
+        <div class="hero-hold-sub">TELECOM · FIBER OPTICS · LOW CURRENT NETWORKS</div>
+        <div class="hero-hold-ar" lang="ar">شبكات الاتصالات المتطورة وأنظمة الجهد المنخفض</div>
+      </div>
+      <div class="hero-hold-slide" data-hold-step="2">
+        <div class="hero-hold-word" data-word="KINGDOM-WIDE">KINGDOM-WIDE</div>
+        <div class="hero-hold-sub">SAUDI ARAMCO APPROVED VENDOR #10050008 · EST. 1973</div>
+        <div class="hero-hold-ar" lang="ar">خدمات معتمدة لدى كبرى الهيئات والشركات بالمملكة</div>
+      </div>
+    </div>
+    <div class="hero-hold-hint">Release mouse to return · أفلِت للعودة</div>
+  </div>
 
   <div class="wrap hero-in">
     <div class="h-copy">
-      <a class="news" href="#credentials"><i></i><span>Registered Saudi Aramco vendor</span> <b>code 10050008</b> <span class="raq">»</span></a>
-      <h1><span class="w">Connecting</span> the Eastern Province since <span class="u">1973</span></h1>
+      <a class="news" href="#credentials" data-scramble="true"><i></i><span>Registered Saudi Aramco vendor</span> <b>code 10050008</b> <span class="raq">»</span></a>
+      <h1><span class="w">Connecting</span> the Eastern Province since <span class="u text-gradient">1973</span></h1>
       <p class="arname" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</p>
       <div class="ctas">
-        <a class="btn blue" href="#projects">Check Delivered Projects</a>
-        <a class="btn green" href="#contact">Request a Quote</a>
+        <a class="btn blue" href="#projects" data-scramble="true">Check Delivered Projects</a>
+        <a class="btn green" href="#contact" data-scramble="true">Request a Quote</a>
+      </div>
+      <div class="mobile-hold-bar">
+        <button type="button" class="mobile-hold-btn" id="mobileHoldTrigger">
+          <span class="btn-hold-radar"></span>
+          <span>Hold to Explore Telecom Network</span>
+        </button>
       </div>
       <div class="trust">
         <p>Trusted by <b><span id="clientCount">200</span>+ clients.</b> Serving the Kingdom since <b>1973</b>.</p>
       </div>
     </div>
 
-    <div class="hero-showcase">
+    <div class="hero-showcase" data-spotlight="true">
       <div class="hero-showcase-frame">
         <div class="hero-showcase-badge">
           <span class="badge-dot"></span>
@@ -2061,4 +2447,9 @@ window.addEventListener("hashchange",()=>go(location.hash.slice(1)||"top"));
 go(location.hash.slice(1)||"top");
 </script>
 
-</body></html>
+
+<script src="three.min.js"></script>
+<script>if(typeof THREE==="undefined"){document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');}</script>
+<script src="cerebrium_system.js"></script>
+</body>
+</html>
