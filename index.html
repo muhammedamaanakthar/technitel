@@ -2,7 +2,7 @@
 <title>TECHNI TEL Profile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Readex+Pro:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Readex+Pro:wght@400;500;600&display=swap">
 <style>
 :root{
   color-scheme:dark;
@@ -12,6 +12,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.5),0 18px 40px -18px rgba(0,0,0,.9);
   --f-disp:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-body:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-contact:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-ar:"Readex Pro","Geeza Pro","Segoe UI",Tahoma,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   --maxw:1200px;
@@ -326,13 +327,13 @@ body:not(.single) .hero,body:not(.single) .sec{animation:none}
 /* contact */
 .contact{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
 .card{background:var(--surface);border:1px solid var(--line);padding:26px}
-.card h3{font-size:24px;text-transform:none;margin-bottom:4px}
+.card h3{font-family:var(--f-contact);font-size:24px;font-weight:700;letter-spacing:-.02em;text-transform:none;margin-bottom:4px}
 .card .ar{font-family:var(--f-ar);direction:rtl;text-align:left;color:var(--ink3);margin-bottom:18px}
 .rows{display:grid;gap:0}
 .rows div{display:grid;grid-template-columns:90px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
-.rows .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
-.rows .v{font-family:var(--f-mono);font-size:15px;user-select:all;word-break:break-word}
-.cp{font:500 12px var(--f-body);background:transparent;border:1px solid var(--line);color:var(--ink2);padding:5px 9px;border-radius:4px;cursor:pointer}
+.rows .k{font-family:var(--f-contact);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.rows .v{font-family:var(--f-contact);font-size:15px;font-weight:500;letter-spacing:-.01em;font-feature-settings:"tnum";user-select:all;word-break:break-word}
+.cp{font:600 12px var(--f-contact);background:transparent;border:1px solid var(--line);color:var(--ink2);padding:5px 9px;border-radius:4px;cursor:pointer}
 .cp:hover{border-color:var(--ink3);color:var(--ink)}
 .map{background:var(--surface);border:1px solid var(--line);padding:10px;display:grid}
 .map svg{width:100%;height:auto;display:block}
@@ -433,13 +434,15 @@ footer a:hover{color:var(--red)}
   background: #FFFFFF;
 }
 #contact .contact-visual-info h4 {
-  font-family: var(--f-disp);
+  font-family: var(--f-contact);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -.015em;
   color: #111113;
   margin: 0;
 }
 #contact .contact-visual-info p {
+  font-family: var(--f-contact);
   color: #4A4B50;
   font-size: 14.5px;
   line-height: 1.6;
@@ -449,6 +452,7 @@ footer a:hover{color:var(--red)}
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  font-family: var(--f-contact);
   font-size: 13px;
   color: #787980;
   padding-top: 6px;
@@ -549,13 +553,18 @@ footer {
   font-size: 13.5px;
 }
 .footer-contact-list .fk {
-  font-family: var(--f-mono);
+  font-family: var(--f-contact);
   font-size: 11.5px;
+  font-weight: 600;
   text-transform: uppercase;
   color: #7A7A82;
   letter-spacing: .06em;
 }
 .footer-contact-list .fv {
+  font-family: var(--f-contact);
+  font-weight: 500;
+  letter-spacing: -.01em;
+  font-feature-settings: "tnum";
   color: #EDEDF0;
 }
 .footer-contact-list a {
@@ -852,21 +861,42 @@ footer {
 }
 #contact .card h3 {
   color: #111113;
+  font-family: var(--f-contact);
   font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.02em;
 }
 #contact .card .ar {
+  font-family: var(--f-ar);
   color: #787980;
+  font-size: 14.5px;
+  margin-bottom: 18px;
 }
 #contact .rows div {
   border-top-color: #EAEAEF;
+  padding: 13px 0;
 }
 #contact .rows .k {
   color: #787980;
+  font-family: var(--f-contact);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 #contact .rows .v {
   color: #111113;
+  font-family: var(--f-contact);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -.01em;
+  line-height: 1.5;
+  font-feature-settings: "tnum";
 }
 #contact .cp {
+  font-family: var(--f-contact);
+  font-weight: 600;
+  font-size: 12px;
   background: #F7F7F8;
   border: 1px solid #E2E2E6;
   color: #4A4B50;
@@ -939,7 +969,7 @@ footer {
   box-shadow: 0 1px 4px rgba(0,0,0,.08);
 }
 .map-direct-btn {
-  font: 600 12.5px var(--f-body);
+  font: 600 12.5px var(--f-contact);
   color: #FFFFFF;
   text-decoration: none;
   display: inline-flex;
@@ -1051,6 +1081,7 @@ footer {
 }
 #contact .map .cap {
   color: #787980;
+  font-family: var(--f-contact);
   font-size: 13px;
   line-height: 1.5;
   padding: 4px 2px 2px;
