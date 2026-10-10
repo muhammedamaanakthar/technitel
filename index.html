@@ -913,6 +913,77 @@ footer {
   border: 1px solid #E2E2E6;
   border-radius: 14px;
   box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.map-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #FFFFFF;
+  flex-wrap: wrap;
+}
+.map-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-body);
+  font-size: 13.5px;
+  color: #55565B;
+}
+.map-location-tag svg {
+  color: var(--red);
+  flex-shrink: 0;
+}
+.map-simple-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: var(--red);
+  color: #FFFFFF !important;
+  font-family: var(--f-body);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(225, 38, 45, 0.2);
+  transition: background .2s ease, transform .2s ease;
+  white-space: nowrap;
+}
+.map-simple-btn:hover {
+  background: #b81c22;
+  box-shadow: 0 4px 12px rgba(225, 38, 45, 0.3);
+  transform: translateY(-1px);
+}
+.map-simple-btn svg {
+  flex-shrink: 0;
+}
+.map-simple-btn .arr {
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .map-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+  .map-simple-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+.gmap-embed-wrap-old {
+  background: #FFFFFF;
+  border: 1px solid #E2E2E6;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px -4px rgba(0,0,0,.06);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -1983,29 +2054,28 @@ html.is-hero-hold-active .hero-hold-overlay {
         </div>
       </div>
       <div class="map">
-        <div class="map-header">
-          <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="map-direct-btn" title="Open Technitel in Google Maps">
+        <div class="gmap-embed-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.4007269576723!2d50.1881868!3d26.3458979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fb81133a6665%3A0xe395f32d6d15f7e9!2sTechnitel!5e0!3m2!1sen!2ssa!4v1728198000000!5m2!1sen!2ssa"
+            width="100%"
+            height="380"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Maps Location - Technitel Dammam">
+          </iframe>
+        </div>
+        <div class="map-bottom">
+          <div class="map-location-tag">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>King Khalid St &amp; Dhahran St (11th St), Dammam</span>
+          </div>
+          <a href="https://maps.app.goo.gl/zVgD2d9j5DC1c3fBA" target="_blank" rel="noopener" class="map-simple-btn" title="Open Technitel in Google Maps">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <span>Open in Google Maps</span>
-            <span style="font-size:14px">↗</span>
+            <span class="arr">↗</span>
           </a>
-        </div>
-        <div class="map-panel" id="viewGMap">
-          <div class="gmap-embed-wrap">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3575.4007269576723!2d50.1881868!3d26.3458979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fb81133a6665%3A0xe395f32d6d15f7e9!2sTechnitel!5e0!3m2!1sen!2ssa!4v1728198000000!5m2!1sen!2ssa"
-              width="100%"
-              height="380"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Google Maps Location - Technitel Dammam">
-            </iframe>
-          </div>
-          <div class="cap">
-            <span>King Khalid St &amp; Dhahran St (11th St), Dammam · Pinpoint Location</span>
-          </div>
         </div>
       </div>
     </div>
