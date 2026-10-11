@@ -1267,264 +1267,77 @@ body.multi .sec{min-height:0}
   display: block;
 }
 
-/* 2. Hero Content Hold Transitions */
-.h-copy, .hero-showcase {
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity, filter;
+/* 2. Clean Tactile Button Pressing & Active States */
+.btn {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-html.is-hero-hold-active .h-copy,
-html.is-hero-hold-active .hero-showcase {
-  opacity: 0 !important;
-  transform: scale(0.95) translateY(-14px) !important;
-  filter: blur(6px) !important;
-  pointer-events: none !important;
+.btn:active {
+  transform: translateY(1px) scale(0.985);
+  filter: brightness(0.94);
 }
-
-/* 3. Follower Cursor (Cerebrium Signature) */
-.c-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(-50%, -50%, 0);
-  will-change: transform, opacity;
-  transition: opacity 0.25s ease;
+.nav a.l {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .2s, border-color .2s, transform .15s ease;
 }
-.c-cursor.is-visible {
-  opacity: 1;
+.nav a.l:active {
+  transform: scale(0.96);
+  opacity: 0.8;
 }
-.c-cursor.is-hidden {
-  opacity: 0;
+.cp {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease;
 }
-.c-cursor_container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cp:active {
+  transform: scale(0.94);
 }
-.c-cursor_svg {
-  width: 140px;
-  height: 140px;
-  transform: rotate(-90deg) scale(0.8);
-  transform-origin: center;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.tab {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease;
 }
-.c-cursor.is-visible .c-cursor_svg {
-  transform: rotate(-90deg) scale(1);
+.tab:active {
+  transform: scale(0.96);
 }
-.c-cursor.is-holding .c-cursor_svg {
-  transform: rotate(-90deg) scale(0.92);
+.btn-submit {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.c-cursor_ring {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.18);
-  stroke-width: 1.5;
-  stroke-linecap: round;
+.btn-submit:active {
+  transform: translateY(1px) scale(0.985);
+  box-shadow: 0 1px 4px rgba(225, 38, 45, .3);
 }
-.c-cursor_progress {
-  fill: none;
-  stroke: var(--red);
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 6px var(--red-ink));
-  stroke-dasharray: 446.1;
-  stroke-dashoffset: 446.1;
-  transition: stroke-dashoffset 0.08s linear;
+.btn-form-reset:active {
+  transform: scale(0.97);
 }
-.c-cursor_content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: transform 0.35s ease;
+#orgChartBtn {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .15s ease, background-color .15s ease;
 }
-.c-cursor_content_bar {
-  width: 5px;
-  height: 5px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  transition: width 0.35s ease, height 0.35s ease, border-radius 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+#orgChartBtn:active {
+  transform: scale(0.96);
+  background: rgba(225, 38, 45, 0.08);
 }
-.c-cursor.is-holding .c-cursor_content_bar {
-  width: 16px;
-  height: 3px;
-  border-radius: 2px;
-  background-color: var(--red);
-  box-shadow: 0 0 8px var(--red-ink);
+#lbX:active {
+  transform: scale(0.92);
 }
-.c-cursor_text {
-  position: absolute;
-  top: calc(100% - 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(0, 0, 0, 0.65);
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  white-space: nowrap;
-  transition: opacity 0.25s ease;
+.lt {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.c-cursor.is-holding .c-cursor_text {
-  opacity: 0;
+.lt:active {
+  transform: scale(0.985);
 }
-
-/* 4. Fullscreen Hold Kinetic Typography Overlay */
-.hero-hold-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 10;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+.hero-showcase-img[role="button"] {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-html.is-hero-hold-active .hero-hold-overlay {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  cursor: pointer;
-}
-.hero-hold-words-box {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  text-align: center;
-  min-height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero-hold-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
-.hero-hold-slide.is-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.hero-hold-word {
-  font-family: var(--f-disp);
-  font-size: clamp(44px, 9vw, 108px);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
-  line-height: 1;
-  color: #FFFFFF;
-  text-shadow: 0 0 45px rgba(225, 38, 45, 0.7);
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.hero-hold-letter {
-  display: inline-block;
-  opacity: 0;
-  animation: letterDecode 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-@keyframes letterDecode {
-  0% { opacity: 0; transform: translateY(18px) scale(0.9); }
-  50% { opacity: 1; transform: translateY(0) scale(1.05); }
-  75% { opacity: 0.2; }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-.hero-hold-sub {
-  font-family: var(--f-mono);
-  font-size: clamp(12px, 1.8vw, 17px);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--red-ink);
-  margin-top: 18px;
-  text-shadow: 0 0 16px rgba(225, 38, 45, 0.6);
-  opacity: 0.95;
-}
-.hero-hold-ar {
-  font-family: var(--f-ar);
-  font-size: clamp(15px, 2.2vw, 24px);
-  color: rgba(255, 255, 255, 0.85);
-  direction: rtl;
-  margin-top: 8px;
-}
-.hero-hold-hint {
-  position: absolute;
-  bottom: 30px;
-  font-family: var(--f-mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  background: rgba(0, 0, 0, 0.65);
-  padding: 8px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
-  animation: hintBreathe 2s ease-in-out infinite alternate;
-}
-@keyframes hintBreathe {
-  from { opacity: 0.6; transform: translateY(0); }
-  to { opacity: 1; transform: translateY(-4px); }
-}
-
-/* 5. Mobile Hold Button */
-.mobile-hold-bar {
-  display: none;
-  margin-top: 22px;
-}
-@media (max-width: 900px), (hover: none) {
-  .mobile-hold-bar {
-    display: block;
-  }
-}
-.mobile-hold-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 22px;
-  background: rgba(225, 38, 45, 0.15);
-  border: 1px solid var(--red);
-  color: #FFFFFF;
-  border-radius: 8px;
-  font-family: var(--f-mono);
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: all 0.25s ease;
-}
-.mobile-hold-btn:active, .mobile-hold-btn.is-active {
-  background: var(--red);
-  box-shadow: 0 0 24px rgba(225, 38, 45, 0.6);
-  transform: scale(0.98);
-}
-.btn-hold-radar {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--red-ink);
-  box-shadow: 0 0 0 3px rgba(225, 38, 45, 0.35);
-  animation: pulse 1.6s infinite;
+.hero-showcase-img[role="button"]:active {
+  transform: scale(0.99);
 }
 
 /* 6. Glowing Shimmer Text Gradient */
@@ -1608,57 +1421,14 @@ html.is-hero-hold-active .hero-hold-overlay {
   <div class="gridbg" aria-hidden="true"></div>
   <div class="hero-canvas-wrap" id="heroCanvasWrap" aria-hidden="true"></div>
 
-  <!-- Cerebrium Signature Follower Cursor -->
-  <div class="c-cursor" id="heroCursor" aria-hidden="true">
-    <div class="c-cursor_container">
-      <svg viewBox="0 0 150 150" class="c-cursor_svg">
-        <circle class="c-cursor_ring" cx="75" cy="75" r="71"></circle>
-        <circle class="c-cursor_progress" cx="75" cy="75" r="71" id="heroCursorProgress"></circle>
-      </svg>
-      <div class="c-cursor_content">
-        <div class="c-cursor_content_bar"></div>
-        <div class="c-cursor_content_bar"></div>
-      </div>
-    </div>
-    <span class="c-cursor_text">Click and hold</span>
-  </div>
-
-  <!-- Cerebrium Signature Kinetic Hold Overlay -->
-  <div class="hero-hold-overlay" id="heroHoldOverlay" aria-hidden="true">
-    <div class="hero-hold-words-box">
-      <div class="hero-hold-slide is-active" data-hold-step="0">
-        <div class="hero-hold-word" data-word="CONNECTING">CONNECTING</div>
-        <div class="hero-hold-sub">TECHNICAL ESTABLISHMENT · EASTERN PROVINCE</div>
-        <div class="hero-hold-ar" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</div>
-      </div>
-      <div class="hero-hold-slide" data-hold-step="1">
-        <div class="hero-hold-word" data-word="POWERING">POWERING</div>
-        <div class="hero-hold-sub">TELECOM · FIBER OPTICS · LOW CURRENT NETWORKS</div>
-        <div class="hero-hold-ar" lang="ar">شبكات الاتصالات المتطورة وأنظمة الجهد المنخفض</div>
-      </div>
-      <div class="hero-hold-slide" data-hold-step="2">
-        <div class="hero-hold-word" data-word="KINGDOM-WIDE">KINGDOM-WIDE</div>
-        <div class="hero-hold-sub">SAUDI ARAMCO APPROVED VENDOR #10050008 · EST. 1973</div>
-        <div class="hero-hold-ar" lang="ar">خدمات معتمدة لدى كبرى الهيئات والشركات بالمملكة</div>
-      </div>
-    </div>
-    <div class="hero-hold-hint">Release mouse to return · أفلِت للعودة</div>
-  </div>
-
   <div class="wrap hero-in">
     <div class="h-copy">
-      <a class="news" href="#credentials" data-scramble="true"><i></i><span>Registered Saudi Aramco vendor</span> <b>code 10050008</b> <span class="raq">»</span></a>
+      <a class="news" href="#credentials"><i></i><span>Registered Saudi Aramco vendor</span> <b>code 10050008</b> <span class="raq">»</span></a>
       <h1><span class="w">Connecting</span> the Eastern Province since <span class="u text-gradient">1973</span></h1>
       <p class="arname" lang="ar">المؤسسة الفنية للخدمات الكهربائية والهاتفية</p>
       <div class="ctas">
-        <a class="btn blue" href="#projects" data-scramble="true">Check Delivered Projects</a>
-        <a class="btn green" href="#contact" data-scramble="true">Request a Quote</a>
-      </div>
-      <div class="mobile-hold-bar">
-        <button type="button" class="mobile-hold-btn" id="mobileHoldTrigger">
-          <span class="btn-hold-radar"></span>
-          <span>Hold to Explore Telecom Network</span>
-        </button>
+        <a class="btn blue" href="#projects">Check Delivered Projects</a>
+        <a class="btn green" href="#contact">Request a Quote</a>
       </div>
       <div class="trust">
         <p>Trusted by <b><span id="clientCount">200</span>+ clients.</b> Serving the Kingdom since <b>1973</b>.</p>
@@ -1673,7 +1443,7 @@ html.is-hero-hold-active .hero-hold-overlay {
         </div>
         <div class="hero-showcase-img" id="heroImgBtn" role="button" tabindex="0" title="Click to view full size profile">
           <img src="images/technitel_cover_card.png" alt="TECHNI TEL - Technical Est. for Elect. & Comm. Serv." loading="eager">
-          <span class="zoom-hint">⤢ View Full Page</span>
+          <span class="zoom-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-1px;margin-inline-end:4px;"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>View Full Page</span>
         </div>
         <div class="hero-showcase-meta">
           <div class="meta-col">
@@ -1786,7 +1556,7 @@ html.is-hero-hold-active .hero-hold-overlay {
   <div class="wrap">
     <div class="trace"><i></i><s></s></div>
     <div class="sec-head"><h2>Organization</h2><div class="ar">الهيكل التنظيمي</div>
-      <p class="lede">Operational structure from executive management to specialized engineering and project teams. <button id="orgChartBtn" type="button" style="background:transparent;border:1px solid var(--line);border-radius:6px;color:var(--red-ink);padding:4px 12px;font-family:var(--f-mono);font-size:12px;cursor:pointer;margin-inline-start:8px;display:inline-flex;align-items:center;gap:6px"><span>View Original Chart Scan (PDF)</span> ⤢</button></p></div>
+      <p class="lede">Operational structure from executive management to specialized engineering and project teams. <button id="orgChartBtn" type="button" style="background:transparent;border:1px solid var(--line);border-radius:6px;color:var(--red-ink);padding:4px 12px;font-family:var(--f-mono);font-size:12px;cursor:pointer;margin-inline-start:8px;display:inline-flex;align-items:center;gap:6px"><span>View Original Chart Scan (PDF)</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></button></p></div>
     <div class="org"><div class="orgin">
       <div class="node top">Chairman (President)</div>
       <div class="vline"></div>
@@ -2132,6 +1902,10 @@ html.is-hero-hold-active .hero-hold-overlay {
                 </div>
               </div>
 
+              <div id="contactFormError" class="form-error-banner" style="display:none;margin-top:14px;padding:11px 14px;background:#FFF0F1;border:1px solid #FFCDD2;color:#C8171E;border-radius:6px;font-size:13.5px;font-family:var(--f-contact);font-weight:500;align-items:center;gap:8px;" role="alert">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span id="contactFormErrorText">Please fill in all required fields marked with * (Name, Work Email, Phone, Message).</span>
+              </div>
               <div class="form-actions">
                 <button type="submit" class="btn-submit" id="contactSubmitBtn">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
@@ -2245,7 +2019,7 @@ const CATS=[
 ];
 const tabs=$("#tabs"),panels=$("#panels");
 CATS.forEach((c,i)=>{
-  const b=document.createElement("button");b.className="tab";b.id="tab-"+c.id;b.setAttribute("role","tab");
+  const b=document.createElement("button");b.type="button";b.className="tab";b.id="tab-"+c.id;b.setAttribute("role","tab");
   b.setAttribute("aria-selected",i===0);b.setAttribute("aria-controls","panel-"+c.id);
   b.innerHTML='<span>'+esc(c.en)+'</span><i aria-hidden="true">›</i>';b.onclick=()=>sel(c.id);tabs.appendChild(b);
   const p=document.createElement("div");p.className="panel";p.id="panel-"+c.id;p.setAttribute("role","tabpanel");p.setAttribute("aria-labelledby","tab-"+c.id);p.hidden=i!==0;
@@ -2296,7 +2070,7 @@ const LET=[
  {k:"L_water",ty:"Certificate · شهادة",t:"Water & Sewage Authority, Al-Ahsa",dt:"Since 1415 H",p:"Maintenance of wired and wireless equipment for the Eastern Province water authority's Al-Ahsa branch since 1415 H, renewed for a second three-year term."},
  {k:"L_railways",ty:"Certificate · شهادة",t:"Saudi Railways Organization",dt:"1424 H",p:"Installed three PABX systems at reservation offices in Dammam, Hofuf and Riyadh, all working well with no remarks."}
 ];
-$("#letters").innerHTML=LET.map((l,i)=>'<button class="lt" data-i="'+i+'"><div class="thumb" style="background-image:url(\''+IMG[l.k]+'\')"></div><div class="body"><span class="ty">'+esc(l.ty)+"</span><h3>"+esc(l.t)+'</h3><span class="dt">'+esc(l.dt)+"</span><p>"+esc(l.p)+"</p></div></button>").join("");
+$("#letters").innerHTML=LET.map((l,i)=>'<button type="button" class="lt" data-i="'+i+'"><div class="thumb" style="background-image:url(\''+IMG[l.k]+'\')"></div><div class="body"><span class="ty">'+esc(l.ty)+"</span><h3>"+esc(l.t)+'</h3><span class="dt">'+esc(l.dt)+"</span><p>"+esc(l.p)+"</p></div></button>").join("");
 const lb=$("#lb");let lastFocus=null;
 function openLb(src, title, alt, triggerEl){
   lastFocus=triggerEl||null;
@@ -2344,10 +2118,17 @@ if (contactForm) {
     const subject = (document.getElementById("cf-subject")?.value || "").trim();
     const message = (document.getElementById("cf-message")?.value || "").trim();
 
+    const errBox = document.getElementById("contactFormError");
+    const errText = document.getElementById("contactFormErrorText");
     if (!name || !email || !phone || !message) {
-      alert("Please fill in all required fields (Name, Email, Phone, Message).");
+      if (errBox) {
+        errBox.style.display = "flex";
+        if (errText) errText.textContent = "Please fill in all required fields marked with * (Name, Work Email, Phone, Message).";
+        errBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
       return;
     }
+    if (errBox) errBox.style.display = "none";
 
     const originalHtml = btn.innerHTML;
     btn.disabled = true;
@@ -2392,6 +2173,8 @@ if (contactForm) {
   if (resetBtn) {
     resetBtn.addEventListener("click", function () {
       contactForm.reset();
+      const errBox = document.getElementById("contactFormError");
+      if (errBox) errBox.style.display = "none";
       const feedback = document.getElementById("formFeedback");
       const formFields = document.getElementById("formFieldsWrapper");
       if (feedback && formFields) {
@@ -2415,15 +2198,42 @@ function renderClients(){const list=[];for(const [s,a] of Object.entries(CL))if(
   $("#clientList").innerHTML="<ul>"+list.map(([n,s])=>"<li>"+esc(n)+"<span>"+esc(SHORT[s])+"</span></li>").join("")+"</ul>";
   $("#ccount").textContent=list.length+" of "+total;
   document.querySelectorAll("#filters .tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===cf)); }
-$("#filters").innerHTML=[["all","All sectors"],...Object.keys(CL).map(k=>[k,k])].map(([f,l])=>'<button class="tab" data-f="'+esc(f)+'">'+esc(l)+"</button>").join("")+'<span class="count" id="ccount"></span>';
+$("#filters").innerHTML=[["all","All sectors"],...Object.keys(CL).map(k=>[k,k])].map(([f,l])=>'<button type="button" class="tab" data-f="'+esc(f)+'">'+esc(l)+"</button>").join("")+'<span class="count" id="ccount"></span>';
 $("#filters").addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;cf=b.dataset.f;renderClients();});
 const st=document.createElement("style");st.textContent='#filters .tab[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}';document.head.appendChild(st);
 renderClients();
 
 /* ---------- copy ---------- */
-document.addEventListener("click",async e=>{const b=e.target.closest(".cp");if(!b)return;const el=document.getElementById(b.dataset.copy);const txt=el.textContent.trim();
-  try{await navigator.clipboard.writeText(txt);b.textContent="Copied";}catch(err){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected";}
-  setTimeout(()=>b.textContent="Copy",1600);});
+document.addEventListener("click",async e=>{
+  const b=e.target.closest(".cp");if(!b)return;
+  const el=document.getElementById(b.dataset.copy);if(!el)return;
+  const txt=el.textContent.trim();
+  let copied=false;
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      await navigator.clipboard.writeText(txt);
+      copied=true;
+    }
+  }catch(_){}
+  if(!copied){
+    try{
+      const ta=document.createElement("textarea");
+      ta.value=txt;
+      ta.style.position="fixed";
+      ta.style.opacity="0";
+      ta.style.pointerEvents="none";
+      document.body.appendChild(ta);
+      ta.select();
+      copied=document.execCommand("copy");
+      document.body.removeChild(ta);
+    }catch(_){
+      const r=document.createRange();r.selectNodeContents(el);
+      const s=getSelection();s.removeAllRanges();s.addRange(r);
+    }
+  }
+  b.textContent=copied?"Copied":"Selected";
+  setTimeout(()=>b.textContent="Copy",1600);
+});
 
 /* ---------- page router: each nav item opens one page; About and Products group several sections ---------- */
 const GROUPS=[["top","Home",["top","highlights"]],["about","About",["about","company","credentials"]],["products","Products",["services","products"]],["projects","Projects",["projects"]],["clients","Clients",["clients"]],["contact","Contact",["contact"]]];
