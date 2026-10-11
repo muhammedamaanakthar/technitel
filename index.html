@@ -113,7 +113,7 @@ body{background:var(--paper)}
 .hero-showcase-badge{display:flex;align-items:center;gap:10px;padding:13px 20px;background:rgba(0,0,0,.7);border-bottom:1px solid rgba(255,255,255,.08);font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
 .hero-showcase-badge .badge-dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(225,38,45,.3);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
-.hero-showcase-img{width:100%;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in;position:relative}
+.hero-showcase-img{width:100%;background:#0B0B0C;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in;position:relative}
 .hero-showcase-img img{width:100%;height:auto;display:block;object-fit:cover;transition:transform .4s ease}
 .hero-showcase-frame:hover .hero-showcase-img img{transform:scale(1.02)}
 .zoom-hint{position:absolute;bottom:12px;right:14px;background:rgba(0,0,0,.75);color:#fff;font-family:var(--f-mono);font-size:11px;padding:5px 10px;border-radius:6px;backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease;pointer-events:none}
@@ -1442,7 +1442,7 @@ body.multi .sec{min-height:0}
           <span>Official Company Profile · Dammam</span>
         </div>
         <div class="hero-showcase-img" id="heroImgBtn" role="button" tabindex="0" title="Click to view full size profile">
-          <img src="images/technitel_cover_card.png" alt="TECHNI TEL - Technical Est. for Elect. & Comm. Serv." loading="eager">
+          <img src="images/telecom_fiber_network.jpg" alt="TECHNI TEL - Telecommunications &amp; Low Current Infrastructure" loading="eager">
           <span class="zoom-hint"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-1px;margin-inline-end:4px;"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>View Full Page</span>
         </div>
         <div class="hero-showcase-meta">
@@ -2090,7 +2090,7 @@ $("#letters").addEventListener("click",e=>{const b=e.target.closest(".lt");if(!b
 
 const heroBtn=document.getElementById("heroImgBtn");
 if(heroBtn){
-  const trigHero=()=>openLb("images/technitel_cover_card.png","TECHNI TEL · Company Profile (Dammam, Est. 1973)","TECHNI TEL Company Profile Cover",heroBtn);
+  const trigHero=()=>openLb("images/telecom_fiber_network.jpg","TECHNI TEL · Telecommunications & Low Current Infrastructure","TECHNI TEL Telecommunications Network",heroBtn);
   heroBtn.addEventListener("click",trigHero);
   heroBtn.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();trigHero();}});
 }
