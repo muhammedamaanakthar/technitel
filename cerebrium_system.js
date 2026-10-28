@@ -163,23 +163,24 @@
 
     // ==========================================
     // PROMINENT TELECOMMUNICATIONS HOLOGRAPHIC GLOBE
+    // Anchored directly in scene on the animation side
     // ==========================================
     const globeGroup = new THREE.Group();
-    group.add(globeGroup);
+    scene.add(globeGroup);
 
     // Responsive layout for globe positioning
     function updateGlobeLayout() {
       const isMobile = width < 768;
       const isTablet = width < 1024;
       if (isMobile) {
-        globeGroup.position.set(0, -30, -65);
-        globeGroup.scale.setScalar(0.72);
+        globeGroup.position.set(0, -28, -60);
+        globeGroup.scale.setScalar(0.75);
       } else if (isTablet) {
-        globeGroup.position.set(65, -15, -55);
-        globeGroup.scale.setScalar(0.85);
+        globeGroup.position.set(70, -12, -50);
+        globeGroup.scale.setScalar(0.90);
       } else {
-        globeGroup.position.set(125, -10, -50);
-        globeGroup.scale.setScalar(1.0);
+        globeGroup.position.set(130, -8, -45);
+        globeGroup.scale.setScalar(1.05);
       }
     }
     updateGlobeLayout();
@@ -191,9 +192,9 @@
       c.height = 128;
       const ctx = c.getContext('2d');
       const g = ctx.createRadialGradient(64, 64, 15, 64, 64, 64);
-      g.addColorStop(0, 'rgba(255, 45, 55, 0.60)');
-      g.addColorStop(0.35, 'rgba(225, 38, 45, 0.32)');
-      g.addColorStop(0.7, 'rgba(255, 95, 102, 0.12)');
+      g.addColorStop(0, 'rgba(255, 45, 55, 0.70)');
+      g.addColorStop(0.35, 'rgba(225, 38, 45, 0.40)');
+      g.addColorStop(0.7, 'rgba(255, 95, 102, 0.16)');
       g.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, 128, 128);
@@ -203,56 +204,56 @@
     const haloMat = new THREE.SpriteMaterial({
       map: atmosphereTex,
       transparent: true,
-      opacity: 0.78,
+      opacity: 0.85,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
     const haloSprite = new THREE.Sprite(haloMat);
-    haloSprite.scale.set(230, 230, 1);
+    haloSprite.scale.set(260, 260, 1);
     globeGroup.add(haloSprite);
 
     // 2. Inner Occluding Volumetric Core (Gives the globe real 3D presence & depth occlusion)
-    const coreGeo = new THREE.SphereGeometry(76.4, 32, 24);
+    const coreGeo = new THREE.SphereGeometry(82.4, 32, 24);
     const coreMat = new THREE.MeshBasicMaterial({
       color: 0x0c0204,
       transparent: true,
-      opacity: 0.88,
+      opacity: 0.90,
       depthWrite: true
     });
     const coreMesh = new THREE.Mesh(coreGeo, coreMat);
     globeGroup.add(coreMesh);
 
     // 3. Inner Glowing Energy Core (Pulsing telecom core)
-    const pulseGeo = new THREE.SphereGeometry(46, 22, 18);
+    const pulseGeo = new THREE.SphereGeometry(50, 22, 18);
     const pulseMat = new THREE.MeshBasicMaterial({
       color: 0xff2830,
       wireframe: true,
       transparent: true,
-      opacity: 0.36,
+      opacity: 0.42,
       blending: THREE.AdditiveBlending
     });
     const pulseMesh = new THREE.Mesh(pulseGeo, pulseMat);
     globeGroup.add(pulseMesh);
 
     // 4. Primary High-Definition Geodesic Globe Wireframe
-    const globeGeo = new THREE.IcosahedronGeometry(78, 2);
+    const globeGeo = new THREE.IcosahedronGeometry(84, 2);
     const globeMat = new THREE.MeshBasicMaterial({
-      color: 0xff2830,
+      color: 0xff252d,
       wireframe: true,
       transparent: true,
-      opacity: 0.82,
+      opacity: 0.88,
       blending: THREE.AdditiveBlending
     });
     const globeMesh = new THREE.Mesh(globeGeo, globeMat);
     globeGroup.add(globeMesh);
 
     // 5. Latitude & Longitude Digital Meridian Network
-    const meridianGeo = new THREE.SphereGeometry(77.6, 24, 14);
+    const meridianGeo = new THREE.SphereGeometry(83.6, 24, 14);
     const meridianMat = new THREE.MeshBasicMaterial({
-      color: 0xff7077,
+      color: 0xff8088,
       wireframe: true,
       transparent: true,
-      opacity: 0.44,
+      opacity: 0.48,
       blending: THREE.AdditiveBlending
     });
     const meridianMesh = new THREE.Mesh(meridianGeo, meridianMat);
@@ -292,7 +293,7 @@
     gNodeGeo.setAttribute('color', new THREE.BufferAttribute(gNodeColors, 3));
 
     const gNodeMat = new THREE.PointsMaterial({
-      size: 11,
+      size: 12,
       vertexColors: true,
       map: glowTex,
       transparent: true,
@@ -303,11 +304,11 @@
     globeGroup.add(globeNodes);
 
     // 7. Dynamic Orbital Rings & Satellites
-    const ringGeo1 = new THREE.TorusGeometry(98, 0.85, 16, 90);
+    const ringGeo1 = new THREE.TorusGeometry(106, 0.9, 16, 90);
     const ringMat1 = new THREE.MeshBasicMaterial({
       color: 0xff3b43,
       transparent: true,
-      opacity: 0.58,
+      opacity: 0.62,
       blending: THREE.AdditiveBlending
     });
     const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
@@ -315,11 +316,11 @@
     ring1.rotation.y = Math.PI * 0.15;
     globeGroup.add(ring1);
 
-    const ringGeo2 = new THREE.TorusGeometry(116, 0.65, 16, 90);
+    const ringGeo2 = new THREE.TorusGeometry(125, 0.7, 16, 90);
     const ringMat2 = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       transparent: true,
-      opacity: 0.42,
+      opacity: 0.46,
       blending: THREE.AdditiveBlending
     });
     const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
@@ -327,11 +328,11 @@
     ring2.rotation.y = Math.PI * 0.38;
     globeGroup.add(ring2);
 
-    const ringGeo3 = new THREE.TorusGeometry(134, 0.45, 16, 90);
+    const ringGeo3 = new THREE.TorusGeometry(144, 0.5, 16, 90);
     const ringMat3 = new THREE.MeshBasicMaterial({
       color: 0xff7077,
       transparent: true,
-      opacity: 0.28,
+      opacity: 0.32,
       blending: THREE.AdditiveBlending
     });
     const ring3 = new THREE.Mesh(ringGeo3, ringMat3);
@@ -350,7 +351,7 @@
     satGeo.setAttribute('position', new THREE.BufferAttribute(satPos, 3));
     satGeo.setAttribute('color', new THREE.BufferAttribute(satCol, 3));
     const satMat = new THREE.PointsMaterial({
-      size: 13,
+      size: 14,
       vertexColors: true,
       map: glowTex,
       transparent: true,
@@ -466,6 +467,10 @@
       group.rotation.y += rotSpeed;
       group.rotation.x = Math.sin(clock * 0.3) * 0.05;
 
+      // Interactive tilt of globe towards mouse
+      globeGroup.rotation.y = mouseX * 0.16;
+      globeGroup.rotation.x = -mouseY * 0.12;
+
       // Synchronous continuous rotation of globe wireframe, meridian grid, and surface nodes
       const globeRotY = 0.006 + warpFactor * 0.025;
       const globeRotX = 0.0025;
@@ -479,8 +484,8 @@
       // Pulse internal energy core and atmospheric halo
       const pulseWave = Math.sin(clock * 2.5);
       pulseMesh.scale.setScalar(1 + pulseWave * 0.06);
-      pulseMat.opacity = 0.34 + pulseWave * 0.12;
-      haloSprite.scale.set(230 + pulseWave * 10, 230 + pulseWave * 10, 1);
+      pulseMat.opacity = 0.40 + pulseWave * 0.12;
+      haloSprite.scale.set(260 + pulseWave * 12, 260 + pulseWave * 12, 1);
 
       // Orbiting rings rotation
       ring1.rotation.z += 0.009 + warpFactor * 0.025;
@@ -490,15 +495,15 @@
       // Orbiting satellites along rings
       const satPosArr = satGeo.attributes.position.array;
       const sAngle1 = clock * 1.5;
-      const sVec1 = new THREE.Vector3(Math.cos(sAngle1) * 98, Math.sin(sAngle1) * 98, 0).applyEuler(ring1.rotation);
+      const sVec1 = new THREE.Vector3(Math.cos(sAngle1) * 106, Math.sin(sAngle1) * 106, 0).applyEuler(ring1.rotation);
       satPosArr[0] = sVec1.x; satPosArr[1] = sVec1.y; satPosArr[2] = sVec1.z;
 
       const sAngle2 = -clock * 1.2;
-      const sVec2 = new THREE.Vector3(Math.cos(sAngle2) * 116, Math.sin(sAngle2) * 116, 0).applyEuler(ring2.rotation);
+      const sVec2 = new THREE.Vector3(Math.cos(sAngle2) * 125, Math.sin(sAngle2) * 125, 0).applyEuler(ring2.rotation);
       satPosArr[3] = sVec2.x; satPosArr[4] = sVec2.y; satPosArr[5] = sVec2.z;
 
       const sAngle3 = clock * 0.85;
-      const sVec3 = new THREE.Vector3(Math.cos(sAngle3) * 134, Math.sin(sAngle3) * 134, 0).applyEuler(ring3.rotation);
+      const sVec3 = new THREE.Vector3(Math.cos(sAngle3) * 144, Math.sin(sAngle3) * 144, 0).applyEuler(ring3.rotation);
       satPosArr[6] = sVec3.x; satPosArr[7] = sVec3.y; satPosArr[8] = sVec3.z;
       satGeo.attributes.position.needsUpdate = true;
 
