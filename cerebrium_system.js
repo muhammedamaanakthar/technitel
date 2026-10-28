@@ -62,8 +62,8 @@
     }
     const glowTex = createGlowTexture();
 
-    // 110 Telecom Transmission Nodes (softened to keep globe as focal point)
-    const nodeCount = 110;
+    // 140 Telecom Transmission Nodes
+    const nodeCount = 140;
     const nodePositions = new Float32Array(nodeCount * 3);
     const nodeColors = new Float32Array(nodeCount * 3);
     const nodeData = [];
@@ -100,19 +100,18 @@
     nodeGeo.setAttribute('color', new THREE.BufferAttribute(nodeColors, 3));
 
     const nodeMat = new THREE.PointsMaterial({
-      size: 8,
+      size: 14,
       vertexColors: true,
       map: glowTex,
       transparent: true,
-      opacity: 0.65,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
     const nodePoints = new THREE.Points(nodeGeo, nodeMat);
     group.add(nodePoints);
 
-    // Fiber Optic Interconnect Lines (delicate ambient network)
-    const maxLineSegs = 160;
+    // Fiber Optic Interconnect Lines
+    const maxLineSegs = 280;
     const linePositions = new Float32Array(maxLineSegs * 6);
     const lineColors = new Float32Array(maxLineSegs * 6);
     const lineGeo = new THREE.BufferGeometry();
@@ -122,7 +121,7 @@
     const lineMat = new THREE.LineBasicMaterial({
       vertexColors: true,
       transparent: true,
-      opacity: 0.20,
+      opacity: 0.5,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
@@ -130,7 +129,7 @@
     group.add(lineSegments);
 
     // Traveling Data Packets
-    const packetCount = 28;
+    const packetCount = 42;
     const packetPos = new Float32Array(packetCount * 3);
     const packetCol = new Float32Array(packetCount * 3);
     const packets = [];
@@ -151,7 +150,7 @@
     packetGeo.setAttribute('position', new THREE.BufferAttribute(packetPos, 3));
     packetGeo.setAttribute('color', new THREE.BufferAttribute(packetCol, 3));
     const packetMat = new THREE.PointsMaterial({
-      size: 7,
+      size: 10,
       vertexColors: true,
       map: glowTex,
       transparent: true,
@@ -161,205 +160,45 @@
     const packetPoints = new THREE.Points(packetGeo, packetMat);
     group.add(packetPoints);
 
-    // ==========================================
-    // PROMINENT TELECOMMUNICATIONS HOLOGRAPHIC GLOBE
-    // Anchored directly in scene on the animation side
-    // ==========================================
-    const globeGroup = new THREE.Group();
-    scene.add(globeGroup);
-
-    // Responsive layout for globe positioning
-    function updateGlobeLayout() {
-      const isMobile = width < 768;
-      const isTablet = width < 1024;
-      if (isMobile) {
-        globeGroup.position.set(0, -28, -60);
-        globeGroup.scale.setScalar(0.75);
-      } else if (isTablet) {
-        globeGroup.position.set(70, -12, -50);
-        globeGroup.scale.setScalar(0.90);
-      } else {
-        globeGroup.position.set(130, -8, -45);
-        globeGroup.scale.setScalar(1.05);
-      }
-    }
-    updateGlobeLayout();
-
-    // 1. Atmospheric Backlight Halo Aura (Frames the globe brightly against dark background)
-    function createAtmosphereTexture() {
-      const c = document.createElement('canvas');
-      c.width = 128;
-      c.height = 128;
-      const ctx = c.getContext('2d');
-      const g = ctx.createRadialGradient(64, 64, 15, 64, 64, 64);
-      g.addColorStop(0, 'rgba(255, 45, 55, 0.70)');
-      g.addColorStop(0.35, 'rgba(225, 38, 45, 0.40)');
-      g.addColorStop(0.7, 'rgba(255, 95, 102, 0.16)');
-      g.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, 128, 128);
-      return new THREE.CanvasTexture(c);
-    }
-    const atmosphereTex = createAtmosphereTexture();
-    const haloMat = new THREE.SpriteMaterial({
-      map: atmosphereTex,
-      transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    const haloSprite = new THREE.Sprite(haloMat);
-    haloSprite.scale.set(260, 260, 1);
-    globeGroup.add(haloSprite);
-
-    // 2. Inner Occluding Volumetric Core (Gives the globe real 3D presence & depth occlusion)
-    const coreGeo = new THREE.SphereGeometry(82.4, 32, 24);
-    const coreMat = new THREE.MeshBasicMaterial({
-      color: 0x0c0204,
-      transparent: true,
-      opacity: 0.90,
-      depthWrite: true
-    });
-    const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-    globeGroup.add(coreMesh);
-
-    // 3. Inner Glowing Energy Core (Pulsing telecom core)
-    const pulseGeo = new THREE.SphereGeometry(50, 22, 18);
-    const pulseMat = new THREE.MeshBasicMaterial({
-      color: 0xff2830,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.42,
-      blending: THREE.AdditiveBlending
-    });
-    const pulseMesh = new THREE.Mesh(pulseGeo, pulseMat);
-    globeGroup.add(pulseMesh);
-
-    // 4. Primary High-Definition Geodesic Globe Wireframe
-    const globeGeo = new THREE.IcosahedronGeometry(84, 2);
+    // Holographic Telecommunications Geodesic Core
+    const globeGeo = new THREE.IcosahedronGeometry(72, 2);
     const globeMat = new THREE.MeshBasicMaterial({
-      color: 0xff252d,
+      color: 0xff3840,
       wireframe: true,
       transparent: true,
-      opacity: 0.88,
+      opacity: 0.45,
       blending: THREE.AdditiveBlending
     });
     const globeMesh = new THREE.Mesh(globeGeo, globeMat);
-    globeGroup.add(globeMesh);
+    globeMesh.position.set(120, -15, -70);
+    group.add(globeMesh);
 
-    // 5. Latitude & Longitude Digital Meridian Network
-    const meridianGeo = new THREE.SphereGeometry(83.6, 24, 14);
-    const meridianMat = new THREE.MeshBasicMaterial({
-      color: 0xff8088,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.48,
-      blending: THREE.AdditiveBlending
-    });
-    const meridianMesh = new THREE.Mesh(meridianGeo, meridianMat);
-    globeGroup.add(meridianMesh);
-
-    // 6. Luminous Telecom Station Nodes on Globe Surface
-    const globePosAttr = globeGeo.attributes.position;
-    const gVertCount = globePosAttr.count;
-    const gNodePositions = new Float32Array(gVertCount * 3);
-    const gNodeColors = new Float32Array(gVertCount * 3);
-
-    for (let i = 0; i < gVertCount; i++) {
-      gNodePositions[i * 3] = globePosAttr.getX(i);
-      gNodePositions[i * 3 + 1] = globePosAttr.getY(i);
-      gNodePositions[i * 3 + 2] = globePosAttr.getZ(i);
-
-      if (i % 4 === 0) {
-        // Bright white major exchange hubs
-        gNodeColors[i * 3] = 1.0;
-        gNodeColors[i * 3 + 1] = 1.0;
-        gNodeColors[i * 3 + 2] = 1.0;
-      } else if (i % 2 === 0) {
-        // Vivid crimson regional nodes
-        gNodeColors[i * 3] = 1.0;
-        gNodeColors[i * 3 + 1] = 0.35;
-        gNodeColors[i * 3 + 2] = 0.40;
-      } else {
-        // Soft red transmission points
-        gNodeColors[i * 3] = 0.95;
-        gNodeColors[i * 3 + 1] = 0.15;
-        gNodeColors[i * 3 + 2] = 0.22;
-      }
-    }
-
-    const gNodeGeo = new THREE.BufferGeometry();
-    gNodeGeo.setAttribute('position', new THREE.BufferAttribute(gNodePositions, 3));
-    gNodeGeo.setAttribute('color', new THREE.BufferAttribute(gNodeColors, 3));
-
-    const gNodeMat = new THREE.PointsMaterial({
-      size: 12,
-      vertexColors: true,
-      map: glowTex,
-      transparent: true,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    const globeNodes = new THREE.Points(gNodeGeo, gNodeMat);
-    globeGroup.add(globeNodes);
-
-    // 7. Dynamic Orbital Rings & Satellites
-    const ringGeo1 = new THREE.TorusGeometry(106, 0.9, 16, 90);
+    // Orbital Rings
+    const ringGeo1 = new THREE.TorusGeometry(88, 0.7, 16, 75);
     const ringMat1 = new THREE.MeshBasicMaterial({
-      color: 0xff3b43,
+      color: 0xff4b51,
       transparent: true,
-      opacity: 0.62,
+      opacity: 0.28,
       blending: THREE.AdditiveBlending
     });
     const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
-    ring1.rotation.x = Math.PI * 0.34;
-    ring1.rotation.y = Math.PI * 0.15;
-    globeGroup.add(ring1);
+    ring1.position.copy(globeMesh.position);
+    ring1.rotation.x = Math.PI * 0.32;
+    ring1.rotation.y = Math.PI * 0.18;
+    group.add(ring1);
 
-    const ringGeo2 = new THREE.TorusGeometry(125, 0.7, 16, 90);
+    const ringGeo2 = new THREE.TorusGeometry(104, 0.5, 16, 75);
     const ringMat2 = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       transparent: true,
-      opacity: 0.46,
+      opacity: 0.2,
       blending: THREE.AdditiveBlending
     });
     const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
-    ring2.rotation.x = -Math.PI * 0.26;
-    ring2.rotation.y = Math.PI * 0.38;
-    globeGroup.add(ring2);
-
-    const ringGeo3 = new THREE.TorusGeometry(144, 0.5, 16, 90);
-    const ringMat3 = new THREE.MeshBasicMaterial({
-      color: 0xff7077,
-      transparent: true,
-      opacity: 0.32,
-      blending: THREE.AdditiveBlending
-    });
-    const ring3 = new THREE.Mesh(ringGeo3, ringMat3);
-    ring3.rotation.x = Math.PI * 0.65;
-    ring3.rotation.y = -Math.PI * 0.20;
-    globeGroup.add(ring3);
-
-    // Orbiting Satellite Transmission Beacons
-    const satGeo = new THREE.BufferGeometry();
-    const satPos = new Float32Array(3 * 3);
-    const satCol = new Float32Array([
-      1.0, 1.0, 1.0,      // Sat 1: White
-      1.0, 0.32, 0.38,    // Sat 2: Vivid Red
-      1.0, 0.82, 0.88     // Sat 3: Rose Silver
-    ]);
-    satGeo.setAttribute('position', new THREE.BufferAttribute(satPos, 3));
-    satGeo.setAttribute('color', new THREE.BufferAttribute(satCol, 3));
-    const satMat = new THREE.PointsMaterial({
-      size: 14,
-      vertexColors: true,
-      map: glowTex,
-      transparent: true,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    const satellitePoints = new THREE.Points(satGeo, satMat);
-    globeGroup.add(satellitePoints);
+    ring2.position.copy(globeMesh.position);
+    ring2.rotation.x = -Math.PI * 0.24;
+    ring2.rotation.y = Math.PI * 0.42;
+    group.add(ring2);
 
     // Warp Streaks for Hyperspace Mode
     const warpCount = 220;
@@ -419,9 +258,6 @@
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
-      if (typeof updateGlobeLayout === 'function') {
-        updateGlobeLayout();
-      }
     }
     window.addEventListener('resize', onResize);
 
@@ -462,50 +298,15 @@
       camera.position.z = baseCamZ;
       camera.lookAt(0, 0, 0);
 
-      // Rotate group & prominent core globe
-      const rotSpeed = 0.0012 + warpFactor * 0.008;
+      // Rotate group & core globe
+      const rotSpeed = 0.0015 + warpFactor * 0.01;
       group.rotation.y += rotSpeed;
-      group.rotation.x = Math.sin(clock * 0.3) * 0.05;
+      group.rotation.x = Math.sin(clock * 0.3) * 0.06;
 
-      // Interactive tilt of globe towards mouse
-      globeGroup.rotation.y = mouseX * 0.16;
-      globeGroup.rotation.x = -mouseY * 0.12;
-
-      // Synchronous continuous rotation of globe wireframe, meridian grid, and surface nodes
-      const globeRotY = 0.006 + warpFactor * 0.025;
-      const globeRotX = 0.0025;
-      globeMesh.rotation.y += globeRotY;
-      globeMesh.rotation.x += globeRotX;
-      meridianMesh.rotation.y += globeRotY;
-      meridianMesh.rotation.x += globeRotX;
-      globeNodes.rotation.y += globeRotY;
-      globeNodes.rotation.x += globeRotX;
-
-      // Pulse internal energy core and atmospheric halo
-      const pulseWave = Math.sin(clock * 2.5);
-      pulseMesh.scale.setScalar(1 + pulseWave * 0.06);
-      pulseMat.opacity = 0.40 + pulseWave * 0.12;
-      haloSprite.scale.set(260 + pulseWave * 12, 260 + pulseWave * 12, 1);
-
-      // Orbiting rings rotation
-      ring1.rotation.z += 0.009 + warpFactor * 0.025;
-      ring2.rotation.z -= 0.007 + warpFactor * 0.02;
-      ring3.rotation.z += 0.005 + warpFactor * 0.015;
-
-      // Orbiting satellites along rings
-      const satPosArr = satGeo.attributes.position.array;
-      const sAngle1 = clock * 1.5;
-      const sVec1 = new THREE.Vector3(Math.cos(sAngle1) * 106, Math.sin(sAngle1) * 106, 0).applyEuler(ring1.rotation);
-      satPosArr[0] = sVec1.x; satPosArr[1] = sVec1.y; satPosArr[2] = sVec1.z;
-
-      const sAngle2 = -clock * 1.2;
-      const sVec2 = new THREE.Vector3(Math.cos(sAngle2) * 125, Math.sin(sAngle2) * 125, 0).applyEuler(ring2.rotation);
-      satPosArr[3] = sVec2.x; satPosArr[4] = sVec2.y; satPosArr[5] = sVec2.z;
-
-      const sAngle3 = clock * 0.85;
-      const sVec3 = new THREE.Vector3(Math.cos(sAngle3) * 144, Math.sin(sAngle3) * 144, 0).applyEuler(ring3.rotation);
-      satPosArr[6] = sVec3.x; satPosArr[7] = sVec3.y; satPosArr[8] = sVec3.z;
-      satGeo.attributes.position.needsUpdate = true;
+      globeMesh.rotation.y += 0.005 + warpFactor * 0.02;
+      globeMesh.rotation.x += 0.003;
+      ring1.rotation.z += 0.008 + warpFactor * 0.025;
+      ring2.rotation.z -= 0.006 + warpFactor * 0.02;
 
       // Update Node positions & connections
       const positions = nodeGeo.attributes.position.array;
@@ -525,11 +326,11 @@
       }
       nodeGeo.attributes.position.needsUpdate = true;
 
-      // Dynamic Fiber Optic Connections (delicate background network so globe is prominent)
+      // Dynamic Fiber Optic Connections
       let lineIdx = 0;
       const lPos = lineGeo.attributes.position.array;
       const lCol = lineGeo.attributes.color.array;
-      const maxDist = 76 + warpFactor * 20;
+      const maxDist = 92 + warpFactor * 25;
 
       for (let i = 0; i < nodeCount && lineIdx < maxLineSegs; i++) {
         for (let j = i + 1; j < nodeCount && lineIdx < maxLineSegs; j++) {
@@ -539,7 +340,7 @@
           const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
           if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * (0.22 + warpFactor * 0.35);
+            const alpha = (1 - dist / maxDist) * (0.45 + warpFactor * 0.4);
 
             lPos[lineIdx * 6] = positions[i * 3];
             lPos[lineIdx * 6 + 1] = positions[i * 3 + 1];
@@ -631,12 +432,8 @@
       r: Math.random() * 2.5 + 1
     }));
 
-    let step = 0;
     function loop() {
-      step += 0.02;
       ctx.clearRect(0, 0, width, height);
-
-      // Subtle background fiber optic network
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
         d.x += d.vx;
@@ -646,65 +443,21 @@
 
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(225, 38, 45, 0.6)';
+        ctx.fillStyle = '#E1262D';
         ctx.fill();
 
         for (let j = i + 1; j < dots.length; j++) {
           const d2 = dots[j];
           const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
-          if (dist < 75) {
+          if (dist < 90) {
             ctx.beginPath();
             ctx.moveTo(d.x, d.y);
             ctx.lineTo(d2.x, d2.y);
-            ctx.strokeStyle = `rgba(225, 38, 45, ${0.22 * (1 - dist / 75)})`;
+            ctx.strokeStyle = `rgba(225, 38, 45, ${0.4 * (1 - dist / 90)})`;
             ctx.stroke();
           }
         }
       }
-
-      // Prominent Holographic Telecom Globe in 2D fallback
-      const globeCx = width > 900 ? width * 0.72 : width * 0.5;
-      const globeCy = height * 0.5;
-      const globeR = Math.min(width * 0.22, height * 0.28, 110);
-
-      // Globe atmospheric glow
-      const grad = ctx.createRadialGradient(globeCx, globeCy, globeR * 0.2, globeCx, globeCy, globeR * 1.4);
-      grad.addColorStop(0, 'rgba(255, 45, 55, 0.45)');
-      grad.addColorStop(0.6, 'rgba(225, 38, 45, 0.18)');
-      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.arc(globeCx, globeCy, globeR * 1.4, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Main globe outline
-      ctx.strokeStyle = 'rgba(255, 45, 55, 0.85)';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.arc(globeCx, globeCy, globeR, 0, Math.PI * 2);
-      ctx.stroke();
-
-      // Longitude / latitude grid
-      ctx.strokeStyle = 'rgba(255, 115, 120, 0.45)';
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.ellipse(globeCx, globeCy, Math.abs(Math.sin(step * 0.5)) * globeR, globeR, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.ellipse(globeCx, globeCy, globeR, globeR * 0.42, 0, 0, Math.PI * 2);
-      ctx.stroke();
-
-      // Orbital ring
-      ctx.save();
-      ctx.translate(globeCx, globeCy);
-      ctx.rotate(0.35);
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
-      ctx.lineWidth = 1.4;
-      ctx.beginPath();
-      ctx.ellipse(0, 0, globeR * 1.35, globeR * 0.45, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
-
       requestAnimationFrame(loop);
     }
     loop();
